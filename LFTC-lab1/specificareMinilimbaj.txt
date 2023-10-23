@@ -1,0 +1,67 @@
+<program>::=#include <iostream>
+	        using namespace std;
+            <declarare-functie> 
+
+<declarare-functie>::= <functie> | <functie> <declarare-functie> 
+<antet> ::=<tip-return> ID ( <parametri-opt> )
+<functie> ::= <antet> { <corp-functie> }
+<apelare-functie> ::= ID ( <parametri-opt> ) ;
+<tip-return> ::= <tip-de-date> | void
+<parametri-opt> ::= <lista-parametri> | EPSILON
+<lista-parametri> ::= <parametru> | <parametru> , <lista-parametri>
+<parametru> ::= <tip-de-date> ID
+<tip-de-date> ::= int | float | cerc //"2 tipuri de date simple"
+<cerc> ::= Cerc(<tip-de-date> <numar-float> ) "un tip de date definit de utilizator"
+
+DECLARARE VARIABILE
+<lista-parametri> ::= ID | ID , <lista-parametri>
+<declarare-variabile> ::= <tip-de-date> <lista-parametri> ;
+
+ATRIBUIRE
+
+<operatori> ::= + | - | * | / | %
+<atribuire-int> ::= int ID = <apelare-functie> | CONST | ID | <operatii-numere-int> | <operatii-variabile>; | ID = <apelare-functie> CONST | ID | <operatii-numere-int> | <operatii-variabile> ;
+<atribuire-float> ::= float ID = <apelare-functie> | <numar-float> | ID | <operatii-numere-float> | <operatii-variabile> ; | ID = <apelare-functie> | <numar-float> | ID | <operatii-numere-float> | <operatii-variabile> ;
+<atribuire-cerc> ::= cerc ID = <apelare-functie> | <cerc> | ID ; | ID = <apelare-functie> | <cerc> | ID ;
+<atribuire-variabile> ::= <atribuire-int> | <atribuire-float> | <atribuire-cerc>
+<operatii-numere-int> ::= CONST <operatori> CONST 
+<operatii-numere-float> ::= <numar-float> <operatori> <numar-float>
+<operatii-variabile> ::= ID <operatori> ID | ID <operatori> CONST | ID <operatori> <numar-float> | CONST <operatori> ID | <numar-float> <operatori> ID
+
+INTRARE/IESIRE
+
+<intrare> ::= cin <elemente-intrare> ;
+<elemente-intrare> ::= >> ID | >> ID <elemente-intrare>
+<iesire> ::= cout <elemente-iesire> ;
+<elemente-iesire> ::= <elemente-compuse-iesire> | <elemente-compuse-iesire> <elemente-iesire>
+<elemente-compuse-iesire> ::= << | ID | CONST | <numar-float> | endl 
+
+SELECTIE CONDITIONALA
+
+<selectie-conditionala> ::= if ( <conditie> ) <instructiuni> | if ( <conditie> ) <instructiuni> else <instructiuni>
+<conditie> ::= ID <operator> ID | ID <operator-conditional> CONST | ID <operator-conditional> <numar-float>
+<operator-conditional> ::= < | > | <= | >= | == | !=
+
+
+INSTRUCTIUNE DE CICLARE
+
+<instructiune-de-ciclare> ::= while ( <conditie> ) { <instructiune> } 
+<instructiuni> ::= <tip-de-instructiune> | <instructiune> <tip-de-instructiune>
+<tip-de-instructiune> ::= <declarare-variabile> | <atribuire-variabile> | <intrare> | <iesire> | <selectie-conditionala> | <instructiune-de-ciclare>
+
+
+<instructiune-de-ciclare> ::= for (<atribuire-variabile> ; <conditie> ; <atribuire-variabile>  ) { <instructiune> } 
+<instructiune> ::= <tip-de-instructiune> | <instructiune> <tip-de-instructiune>
+<tip-de-instructiune> ::= <declarare-variabile> | <atribuire-variabile> | <intrare> | <iesire> | <selectie-conditionala> | <instructiune-de-ciclare>
+
+
+
+RETURN
+
+<return> ::= return ID | return CONST | return <numar-float> ;
+
+
+CORP FUNCTIE
+
+<instr-functie> ::= <declarare-variabile> | <atribuire-variabile> | <intrare> | <iesire> | <selectie-conditionala> | <instructiune-de-ciclare> | <return> 
+<corp-functie> ::= <instr-functie> |<corp-functie> <instr-functie>
