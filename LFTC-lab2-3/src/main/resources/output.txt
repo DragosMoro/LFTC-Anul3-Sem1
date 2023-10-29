@@ -102,5 +102,6 @@ temp -> 8
 
 Lista de erori
 
-calculCMMDC -> 14
-calculCMMDC -> 25
+Eroare la linia: 14 la elementul calculCMMDC
+Eroare la linia: 19 la elementul @
+Eroare la linia: 25 la elementul calculCMMDC
