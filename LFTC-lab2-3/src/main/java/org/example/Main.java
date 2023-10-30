@@ -29,7 +29,7 @@ public class Main {
                     break;
                 default:
                     System.out.println("Invalid choice. Please select a valid option.");
-                    return; // Ieșire din program în cazul unei alegeri invalide
+                    return;
             }
         } catch (IOException e) {
             System.err.println("Error while reading from console: " + e.getMessage());

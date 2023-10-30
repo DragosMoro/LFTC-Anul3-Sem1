@@ -1,0 +1,13 @@
+
+CONST_INT ::= (CONST_DEC | CONST_OCT | CONST_HEX | CONST_BIN) [sufix]
+CONST_DEC ::= cifra_nenula {cifra}
+cifra_nenula ::=  “1”|”2”|“3”|”4”|”5”|”6”|”7”|”8”|”9”
+sufix::= unsigned [long] | long [unsigned]
+unsigned ::= “u” | “U”
+long ::= “l” [“l”] | “L” [“L”]
+CONST_OCT ::= „0” cifra_oct {cifra_oct}
+cifra_oct ::=  “0”|“1”|”2”|“3”|”4”|”5”|”6”|”7”
+CONST_HEX ::= ”0” (”X” | ”x”) cifra_hex {cifra_hex}
+cifra_hex ::= ”0”|“1”|”2”|“3”|”4”|”5”|”6”|”7”|”8”|”9”|”A”|”B”|”C”|”D”|”E”|”F”|”a”|”b”|”c”|”d”|”e”|”f”
+CONST_BIN ::= ”0” (”b” | ”B”) cifra_bin {cifra_bin}
+cifra_bin ::= ”0”| ”1”

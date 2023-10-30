@@ -113,6 +113,7 @@ public class DeterministicFiniteAutomaton {
 
     public String findLongestAcceptedPrefix(String sequence) {
         String prefix = "";
+        String storeLatestAcceptedPrefix = "";
         String currentState = initialState;
         for (int i = 0; i < sequence.length(); i++) {
             String inputSymbol = String.valueOf(sequence.charAt(i));
@@ -122,11 +123,10 @@ public class DeterministicFiniteAutomaton {
             currentState = transitions.get(currentState).get(inputSymbol);
             prefix += inputSymbol;
             if (finalStates.contains(currentState)) {
-                // Found an accepted prefix
-                return prefix;
+                storeLatestAcceptedPrefix = prefix;
             }
         }
-        return "";
+        return storeLatestAcceptedPrefix;
     }
 
 

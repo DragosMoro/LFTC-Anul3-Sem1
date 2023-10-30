@@ -1,0 +1,22 @@
+
+input ::= "States:" {newline} states "Alphabet:" {newline} symbols "Transitions:" {newline} transitions "Initial State:" {newline} initial "Final States:" {newline} final
+
+
+states ::= state {newline state}
+state ::= CONST_STR
+
+symbols ::= CONST_CHR {newline CONST_CHR}
+
+transitions ::= transition {newline transition}
+transition ::= CONST_STR "," CONST_CHR "->" CONST_STR
+
+final ::= state {newline state}
+
+initial ::= state
+
+
+newline ::= "\n"
+CONST_STR ::= letter {letter | digit}
+CONST_CHR ::= letter | digit
+letter ::= "a" | "b" | "c" | ... | "z" | "A" | "B" | ... | "Z"
+digit ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
