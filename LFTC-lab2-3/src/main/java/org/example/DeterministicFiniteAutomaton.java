@@ -5,14 +5,16 @@ import java.util.*;
 
 public class DeterministicFiniteAutomaton {
     private Set<String> states;
-    private Set<String> alphabet;
+    private List<String> alphabet;
     private Map<String, Map<String, String>> transitions;
     private Set<String> finalStates;
     private String initialState;
 
+    private boolean isDeterministic = true;
+
     public DeterministicFiniteAutomaton() {
         states = new LinkedHashSet<>();
-        alphabet = new LinkedHashSet<>();
+        alphabet = new ArrayList<>();
         transitions = new LinkedHashMap<>();
         finalStates = new LinkedHashSet<>();
     }
@@ -55,14 +57,19 @@ public class DeterministicFiniteAutomaton {
                     if (!alphabet.contains(inputSymbol)) {
                         alphabet.add(inputSymbol);
                     }
+
                     if (!states.contains(nextState)) {
                         states.add(nextState);
                     }
 
-                    if (!transitions.containsKey(currentState)) {
-                        transitions.put(currentState, new HashMap<>());
+
+                    if (transitions.containsKey(currentState) && transitions.get(currentState).containsKey(inputSymbol)) {
+                        System.out.println("The DFA is not deterministic.");
+                        isDeterministic = false;
                     }
+                    transitions.put(currentState, new HashMap<>());
                     transitions.get(currentState).put(inputSymbol, nextState);
+
 
                 } else if (readingFinalStates) {
                     finalStates.add(line);
@@ -125,6 +132,12 @@ public class DeterministicFiniteAutomaton {
             if (finalStates.contains(currentState)) {
                 storeLatestAcceptedPrefix = prefix;
             }
+
+        }
+        if (storeLatestAcceptedPrefix == "" && finalStates.contains(initialState)) {
+            storeLatestAcceptedPrefix = "Epsilon";
+        } else if (storeLatestAcceptedPrefix == "") {
+            storeLatestAcceptedPrefix = "No prefix";
         }
         return storeLatestAcceptedPrefix;
     }
@@ -159,6 +172,10 @@ public class DeterministicFiniteAutomaton {
         } catch (IOException e) {
             System.err.println("Error while reading from the console: " + e.getMessage());
         }
+    }
+
+    public boolean isDeterministic() {
+        return isDeterministic;
     }
 
     public void readDeterministicFiniteAutomatonFromConsole(BufferedReader reader) {

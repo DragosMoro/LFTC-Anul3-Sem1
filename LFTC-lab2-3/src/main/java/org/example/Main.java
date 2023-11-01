@@ -63,7 +63,11 @@ public class Main {
                         dfa.displayFinalStates();
                         break;
                     case 5:
-                        dfa.readAndVerifySequenceFromConsole(reader);
+                        if (dfa.isDeterministic()) {
+                            dfa.readAndVerifySequenceFromConsole(reader);
+                        } else {
+                            System.out.println("The DFA is not deterministic. Please choose another option.");
+                        }
                         break;
                     case 6:
                         exit = true;
