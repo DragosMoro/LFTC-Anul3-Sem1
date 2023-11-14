@@ -1,7 +1,6 @@
 #include <iostream>
 using namespace std;
 
-// Functia pentru calculul sumei a n numere citite de la tastatura
 void calculSuma() {
     int n;
     cin >> n;
