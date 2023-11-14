@@ -15,7 +15,7 @@ public class KeywordsManager {
         keywords.put("ID", 0);
         keywords.put("CONST", 1);
         keywords.put("#include", 2);
-        keywords.put("<iostream>", 3);
+        keywords.put("iostream", 3);
         keywords.put("using", 4);
         keywords.put("namespace", 5);
         keywords.put("std", 6);

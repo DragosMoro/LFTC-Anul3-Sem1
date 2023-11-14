@@ -3,10 +3,40 @@ package org.example;
 import java.io.*;
 import java.util.*;
 
+
 public class DeterministicFiniteAutomaton {
+
+    public static class Transition {
+
+        String inputSymbol;
+        String nextState;
+
+        public Transition(String inputSymbol, String nextState) {
+            this.inputSymbol = inputSymbol;
+            this.nextState = nextState;
+        }
+
+        public String getInputSymbol() {
+            return inputSymbol;
+        }
+
+        public void setInputSymbol(String inputSymbol) {
+            this.inputSymbol = inputSymbol;
+        }
+
+        public String getNextState() {
+            return nextState;
+        }
+
+        public void setNextState(String nextState) {
+            this.nextState = nextState;
+        }
+    }
+
+
     private Set<String> states;
     private List<String> alphabet;
-    private Map<String, Map<String, String>> transitions;
+    private Map<String, List<Transition>> transitions;
     private Set<String> finalStates;
     private String initialState;
 
@@ -63,12 +93,16 @@ public class DeterministicFiniteAutomaton {
                     }
 
 
-                    if (transitions.containsKey(currentState) && transitions.get(currentState).containsKey(inputSymbol)) {
-                        System.out.println("The DFA is not deterministic.");
+                    if (transitions.containsKey(currentState) && transitions.get(currentState).stream()
+                            .anyMatch(t -> t.getInputSymbol().equals(inputSymbol))) {
+                        System.out.println("The NFA is not deterministic.");
                         isDeterministic = false;
                     }
-                    transitions.put(currentState, new HashMap<>());
-                    transitions.get(currentState).put(inputSymbol, nextState);
+
+                    if (!transitions.containsKey(currentState)) {
+                        transitions.put(currentState, new ArrayList<>());
+                    }
+                    transitions.get(currentState).add(new Transition(inputSymbol, nextState));
 
 
                 } else if (readingFinalStates) {
@@ -95,9 +129,8 @@ public class DeterministicFiniteAutomaton {
     public void displayTransitions() {
         System.out.println("Transitions:");
         for (String currentState : transitions.keySet()) {
-            for (String inputSymbol : transitions.get(currentState).keySet()) {
-                String nextState = transitions.get(currentState).get(inputSymbol);
-                System.out.println(currentState + "," + inputSymbol + " -> " + nextState);
+            for (Transition transition : transitions.get(currentState)) {
+                System.out.println(currentState + "," + transition.getInputSymbol() + " -> " + transition.getNextState());
             }
         }
     }
@@ -110,10 +143,10 @@ public class DeterministicFiniteAutomaton {
         String currentState = initialState;
         for (int i = 0; i < sequence.length(); i++) {
             String inputSymbol = String.valueOf(sequence.charAt(i));
-            if (!alphabet.contains(inputSymbol) || !transitions.get(currentState).containsKey(inputSymbol)) {
+            if (!alphabet.contains(inputSymbol) || !containsTransition(transitions.get(currentState), inputSymbol)) {
                 return false;
             }
-            currentState = transitions.get(currentState).get(inputSymbol);
+            currentState = getTransitionState(transitions.get(currentState), inputSymbol);
         }
         return finalStates.contains(currentState);
     }
@@ -124,22 +157,30 @@ public class DeterministicFiniteAutomaton {
         String currentState = initialState;
         for (int i = 0; i < sequence.length(); i++) {
             String inputSymbol = String.valueOf(sequence.charAt(i));
-            if (!alphabet.contains(inputSymbol) || !transitions.get(currentState).containsKey(inputSymbol)) {
+            if (!alphabet.contains(inputSymbol) || !containsTransition(transitions.get(currentState), inputSymbol)) {
                 break;
             }
-            currentState = transitions.get(currentState).get(inputSymbol);
+            currentState = getTransitionState(transitions.get(currentState), inputSymbol);
             prefix += inputSymbol;
             if (finalStates.contains(currentState)) {
                 storeLatestAcceptedPrefix = prefix;
             }
-
-        }
-        if (storeLatestAcceptedPrefix == "" && finalStates.contains(initialState)) {
-            storeLatestAcceptedPrefix = "Epsilon";
-        } else if (storeLatestAcceptedPrefix == "") {
-            storeLatestAcceptedPrefix = "No prefix";
         }
         return storeLatestAcceptedPrefix;
+    }
+
+    // Helper method to check if a transition list contains a transition with a given input symbol
+    private boolean containsTransition(List<Transition> transitions, String inputSymbol) {
+        return transitions.stream().anyMatch(t -> t.getInputSymbol().equals(inputSymbol));
+    }
+
+    // Helper method to get the next state from a transition list for a given input symbol
+    private String getTransitionState(List<Transition> transitions, String inputSymbol) {
+        return transitions.stream()
+                .filter(t -> t.getInputSymbol().equals(inputSymbol))
+                .findFirst()
+                .map(Transition::getNextState)
+                .orElse(null);
     }
 
 
@@ -173,6 +214,7 @@ public class DeterministicFiniteAutomaton {
             System.err.println("Error while reading from the console: " + e.getMessage());
         }
     }
+
 
     public boolean isDeterministic() {
         return isDeterministic;
@@ -244,9 +286,9 @@ public class DeterministicFiniteAutomaton {
                 }
 
                 if (!transitions.containsKey(currentState)) {
-                    transitions.put(currentState, new HashMap<>());
+                    transitions.put(currentState, new ArrayList<>());
                 }
-                transitions.get(currentState).put(inputSymbol, nextState);
+                transitions.get(currentState).add(new Transition(inputSymbol, nextState));
             }
 
             // Continue with reading final states
@@ -275,5 +317,6 @@ public class DeterministicFiniteAutomaton {
             System.err.println("Error while reading from the console: " + e.getMessage());
         }
     }
+
 
 }

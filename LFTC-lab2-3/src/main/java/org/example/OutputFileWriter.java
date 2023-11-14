@@ -13,19 +13,17 @@ public class OutputFileWriter {
         this.fileName = fileName;
     }
 
-    public void exportToFile(List<WordPosition> elements, List<WordPosition> errors, Map<String, Integer> symbolMapping) {
+    public void exportToFile(List<WordPosition> elements, List<String> errors, Map<String, Integer> symbolMapping) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
             writer.write("Forma Internă a Programului");
             writer.newLine();
             writer.newLine();
             for (int i = 0; i < elements.size(); i++) {
                 String line = "";
-                if(elements.get(i).getLine() == 0 || elements.get(i).getLine() == 1)
-                {
+                if (elements.get(i).getLine() == 0 || elements.get(i).getLine() == 1) {
                     line = elements.get(i).getWord() + " -> " + elements.get(i).getLine() + " -> " + symbolMapping.get(elements.get(i).getWord());
-                }
-                else{
-                    line = elements.get(i).getWord() + " -> " + elements.get(i).getLine() + " -> NA" ;
+                } else {
+                    line = elements.get(i).getWord() + " -> " + elements.get(i).getLine() + " -> NA";
                 }
                 writer.write(line);
                 writer.newLine();
@@ -35,8 +33,7 @@ public class OutputFileWriter {
             writer.newLine();
             writer.newLine();
 
-            for(String symbol : symbolMapping.keySet())
-            {
+            for (String symbol : symbolMapping.keySet()) {
                 writer.write(symbol + " -> " + symbolMapping.get(symbol));
                 writer.newLine();
             }
@@ -44,9 +41,8 @@ public class OutputFileWriter {
             writer.write("Lista de erori");
             writer.newLine();
             writer.newLine();
-            for (WordPosition error : errors) {
-                String line ="Eroare la linia: "+  error.getLine() +" la elementul "+ error.getWord() ;
-                writer.write(line);
+            for (String error : errors) {
+                writer.write(error);
                 writer.newLine();
             }
 

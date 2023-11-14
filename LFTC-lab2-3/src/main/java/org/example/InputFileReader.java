@@ -36,4 +36,23 @@ public class InputFileReader {
 
         return words;
     }
+
+    public List<WordPosition> readLinesFromFile() {
+        List<WordPosition> lines = new ArrayList<>();
+
+        try (BufferedReader br = new BufferedReader(new FileReader(this.fileName))) {
+            String line;
+            int lineNumber = 1;
+
+            while ((line = br.readLine()) != null) {
+                lines.add(new WordPosition(line, lineNumber));
+
+                lineNumber++;
+            }
+        } catch (IOException e) {
+            System.err.println("Eroare la citirea din fișier: " + e.getMessage());
+        }
+
+        return lines;
+    }
 }
