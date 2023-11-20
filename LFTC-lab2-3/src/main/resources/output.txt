@@ -9,106 +9,53 @@ namespace -> 5 -> NA
 std -> 6 -> NA
 ; -> 7 -> NA
 int -> 13 -> NA
-gcd -> 0 -> 4
+gcd -> 0 -> 3
 ( -> 8 -> NA
 int -> 13 -> NA
-a -> 0 -> 2
+a -> 0 -> 1
 , -> 12 -> NA
 int -> 13 -> NA
-b -> 0 -> 3
+b -> 0 -> 2
 ) -> 9 -> NA
 { -> 10 -> NA
 while -> 30 -> NA
 ( -> 8 -> NA
-b -> 0 -> 3
+b -> 0 -> 2
 ! -> 40 -> NA
 = -> 16 -> NA
 0 -> 1 -> 0
 ) -> 9 -> NA
 { -> 10 -> NA
 int -> 13 -> NA
-temp -> 0 -> 9
+temp -> 0 -> 4
 = -> 16 -> NA
-b -> 0 -> 3
+b -> 0 -> 2
 ; -> 7 -> NA
-b -> 0 -> 3
+b -> 0 -> 2
 = -> 16 -> NA
-a -> 0 -> 2
+a -> 0 -> 1
 % -> 22 -> NA
-b -> 0 -> 3
+b -> 0 -> 2
 ; -> 7 -> NA
-a -> 0 -> 2
+a -> 0 -> 1
 = -> 16 -> NA
-temp -> 0 -> 9
+temp -> 0 -> 4
 ; -> 7 -> NA
 } -> 11 -> NA
 return -> 31 -> NA
-a -> 0 -> 2
+a -> 0 -> 1
 ; -> 7 -> NA
 } -> 11 -> NA
 void -> 42 -> NA
-CMMDC -> 0 -> 1
-( -> 8 -> NA
-) -> 9 -> NA
-{ -> 10 -> NA
-int -> 13 -> NA
-num1 -> 0 -> 6
-, -> 12 -> NA
-num2 -> 0 -> 7
-; -> 7 -> NA
-cin -> 23 -> NA
-> -> 34 -> NA
-> -> 34 -> NA
-num1 -> 0 -> 6
-> -> 34 -> NA
-> -> 34 -> NA
-num2 -> 0 -> 7
-; -> 7 -> NA
-int -> 13 -> NA
-result -> 0 -> 8
-= -> 16 -> NA
-gcd -> 0 -> 4
-( -> 8 -> NA
-num1 -> 0 -> 6
-, -> 12 -> NA
-num2 -> 0 -> 7
-) -> 9 -> NA
-; -> 7 -> NA
-cout -> 24 -> NA
-< -> 33 -> NA
-< -> 33 -> NA
-result -> 0 -> 8
-< -> 33 -> NA
-< -> 33 -> NA
-endl -> 41 -> NA
-; -> 7 -> NA
-} -> 11 -> NA
-int -> 13 -> NA
-main -> 0 -> 5
-( -> 8 -> NA
-) -> 9 -> NA
-{ -> 10 -> NA
-CMMDC -> 0 -> 1
-( -> 8 -> NA
-) -> 9 -> NA
-; -> 7 -> NA
-return -> 31 -> NA
-0 -> 1 -> 0
-; -> 7 -> NA
-} -> 11 -> NA
 
 Tabela de Simboluri
 
 0 -> 0
-CMMDC -> 1
-a -> 2
-b -> 3
-gcd -> 4
-main -> 5
-num1 -> 6
-num2 -> 7
-result -> 8
-temp -> 9
+a -> 1
+b -> 2
+gcd -> 3
+temp -> 4
 
 Lista de erori
 
+Eroare la linia 13 din cauza lungimii cuvantului
