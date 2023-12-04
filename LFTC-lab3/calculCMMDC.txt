@@ -2,16 +2,18 @@
 using namespace std;
 
 int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
+    while (b != 0) 
+    {
+        int temp = b;;
         b = a % b;
         a = temp;
     }
     return a;
 }
 
-void calculCMMDC() {
-    int num1, num2;
+void calcul() {
+    int num1=0;
+    int num2=0;
     cin >> num1 >> num2;
     
     int result = gcd(num1, num2);
@@ -21,6 +23,6 @@ void calculCMMDC() {
 
 int main()
 {
-    calculCMMDC();
+    calcul();
     return 0;
 }

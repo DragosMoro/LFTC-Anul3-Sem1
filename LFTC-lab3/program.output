@@ -1,0 +1,2158 @@
+Terminals unused in grammar
+
+   LOGICAL_OR
+   LOGICAL_AND
+   LOGICAL_NOT
+   CUSTOM_TYPE
+
+
+State 43 conflicts: 1 shift/reduce
+State 107 conflicts: 10 shift/reduce
+State 147 conflicts: 1 shift/reduce
+State 153 conflicts: 10 shift/reduce
+
+
+Grammar
+
+    0 $accept: program $end
+
+    1 program: INCLUDE IOSTREAM USING NAMESPACE STD SEMICOLON declarare_functie
+
+    2 declarare_functie: functie
+    3                  | functie declarare_functie
+
+    4 antet: tip_return corp_functie
+
+    5 functie: antet OPEN_BRACE instructiuni CLOSE_BRACE
+
+    6 apelare_functie: corp_functie_apelare
+
+    7 corp_functie_apelare: IDENTIFIER OPEN_PAREN parametri_opt_apelare CLOSE_PAREN
+
+    8 parametri_opt_apelare: lista_parametri_apelare
+    9                      | /* empty */
+
+   10 lista_parametri_apelare: tip_parametri_apelare
+   11                        | tip_parametri_apelare COMMA lista_parametri_apelare
+
+   12 tip_parametri_apelare: IDENTIFIER
+   13                      | INT_CONSTANT
+   14                      | FLOAT_CONSTANT
+
+   15 tip_return: tip_de_date
+   16           | VOID
+
+   17 corp_functie: IDENTIFIER OPEN_PAREN parametri_opt CLOSE_PAREN
+
+   18 parametri_opt: lista_parametri
+   19              | /* empty */
+
+   20 lista_parametri: parametru
+   21                | parametru COMMA lista_parametri
+
+   22 parametru: tip_de_date IDENTIFIER
+
+   23 tip_de_date: INT_TYPE
+   24            | FLOAT_TYPE
+   25            | CERC
+
+   26 cerc: CERC OPEN_PAREN tip_de_date FLOAT_CONSTANT CLOSE_PAREN
+
+   27 atribuire_int: INT_TYPE atribuire_apelare
+   28              | INT_TYPE IDENTIFIER ASSIGN INT_CONSTANT
+   29              | INT_TYPE IDENTIFIER ASSIGN IDENTIFIER
+   30              | INT_TYPE IDENTIFIER ASSIGN operatii_numere_int
+   31              | INT_TYPE IDENTIFIER ASSIGN operatii_variabile
+
+   32 atribuire_float: FLOAT_TYPE atribuire_apelare
+   33                | FLOAT_TYPE IDENTIFIER ASSIGN FLOAT_CONSTANT
+   34                | FLOAT_TYPE IDENTIFIER ASSIGN IDENTIFIER
+   35                | FLOAT_TYPE IDENTIFIER ASSIGN operatii_numere_float
+   36                | FLOAT_TYPE IDENTIFIER ASSIGN operatii_variabile
+
+   37 atribuire_cerc: CERC atribuire_apelare
+   38               | CERC IDENTIFIER ASSIGN cerc
+   39               | IDENTIFIER ASSIGN cerc
+
+   40 atribuire_identificator: atribuire_apelare
+   41                        | IDENTIFIER ASSIGN IDENTIFIER
+   42                        | IDENTIFIER ASSIGN INT_CONSTANT
+   43                        | IDENTIFIER ASSIGN FLOAT_CONSTANT
+   44                        | IDENTIFIER ASSIGN operatii_numere_int
+   45                        | IDENTIFIER ASSIGN operatii_numere_float
+   46                        | IDENTIFIER ASSIGN operatii_variabile
+
+   47 atribuire_apelare: IDENTIFIER ASSIGN apelare_functie
+
+   48 atribuire_variabile: atribuire_int
+   49                    | atribuire_float
+   50                    | atribuire_cerc
+   51                    | atribuire_identificator
+
+   52 operatii_numere_int: INT_CONSTANT operatii_int INT_CONSTANT
+
+   53 operatii_numere_float: FLOAT_CONSTANT operatii_float FLOAT_CONSTANT
+
+   54 operatii_variabile: IDENTIFIER operatii_int IDENTIFIER
+   55                   | IDENTIFIER operatii_int INT_CONSTANT
+   56                   | IDENTIFIER operatii_int FLOAT_CONSTANT
+   57                   | INT_CONSTANT operatii_int IDENTIFIER
+   58                   | FLOAT_CONSTANT operatii_int IDENTIFIER
+   59                   | FLOAT_CONSTANT operatii_int FLOAT_CONSTANT
+
+   60 operatii_int: operatii_float
+   61             | MODULO
+
+   62 operatii_float: PLUS
+   63               | MINUS
+   64               | MULTIPLY
+   65               | DIVIDE
+
+   66 intrare: CIN elemente_intrare SEMICOLON
+
+   67 elemente_intrare: INPUT_OP IDENTIFIER
+   68                 | INPUT_OP IDENTIFIER elemente_intrare
+
+   69 iesire: COUT elemente_iesire SEMICOLON
+
+   70 elemente_iesire: OUTPUT_OP tip_el_iesire
+   71                | OUTPUT_OP tip_el_iesire elemente_iesire
+
+   72 tip_el_iesire: tip_parametri_apelare
+   73              | ENDL
+
+   74 selectie_conditionala: selectie_conditionala_prima_parte
+   75                      | selectie_conditionala_prima_parte ELSE instructiuni
+
+   76 selectie_conditionala_prima_parte: IF OPEN_PAREN conditie CLOSE_PAREN instructiuni
+
+   77 conditie: IDENTIFIER operator_conditional IDENTIFIER
+   78         | IDENTIFIER operator_conditional INT_CONSTANT
+   79         | IDENTIFIER operator_conditional FLOAT_CONSTANT
+
+   80 operator_conditional: LESS_THAN
+   81                     | GREATER_THAN
+   82                     | LESS_THAN_EQUAL
+   83                     | GREATER_THAN_EQUAL
+   84                     | EQUAL
+   85                     | NOT_EQUAL
+
+   86 instructiune_de_ciclare: WHILE OPEN_PAREN conditie CLOSE_PAREN OPEN_BRACE instructiuni CLOSE_BRACE
+   87                        | FOR OPEN_PAREN atribuire_variabile SEMICOLON conditie SEMICOLON atribuire_variabile CLOSE_PAREN OPEN_BRACE instructiuni CLOSE_BRACE
+
+   88 instructiuni: tip_de_instructiune
+   89             | instructiuni tip_de_instructiune
+
+   90 tip_de_instructiune: apelare_functie SEMICOLON
+   91                    | atribuire_variabile SEMICOLON
+   92                    | intrare
+   93                    | iesire
+   94                    | selectie_conditionala
+   95                    | instructiune_de_ciclare
+   96                    | return
+
+   97 return_el: RETURN IDENTIFIER
+   98          | RETURN INT_CONSTANT
+   99          | RETURN FLOAT_CONSTANT
+
+  100 return: return_el SEMICOLON
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+error (256)
+INCLUDE (258) 1
+IOSTREAM (259) 1
+USING (260) 1
+NAMESPACE (261) 1
+STD (262) 1
+SEMICOLON (263) 1 66 69 87 90 91 100
+OPEN_PAREN (264) 7 17 26 76 86 87
+CLOSE_PAREN (265) 7 17 26 76 86 87
+OPEN_BRACE (266) 5 86 87
+CLOSE_BRACE (267) 5 86 87
+COMMA (268) 11 21
+INT_TYPE (269) 23 27 28 29 30 31
+FLOAT_TYPE (270) 24 32 33 34 35 36
+CERC (271) 25 26 37 38
+ASSIGN (272) 28 29 30 31 33 34 35 36 38 39 41 42 43 44 45 46 47
+EQUAL (273) 84
+PLUS (274) 62
+MINUS (275) 63
+MULTIPLY (276) 64
+DIVIDE (277) 65
+MODULO (278) 61
+CIN (279) 66
+COUT (280) 69
+OUTPUT_OP (281) 70 71
+INPUT_OP (282) 67 68
+IF (283) 76
+ELSE (284) 75
+FOR (285) 87
+WHILE (286) 86
+RETURN (287) 97 98 99
+LESS_THAN (288) 80
+GREATER_THAN (289) 81
+LOGICAL_OR (290)
+LOGICAL_AND (291)
+LOGICAL_NOT (292)
+LESS_THAN_EQUAL (293) 82
+GREATER_THAN_EQUAL (294) 83
+NOT_EQUAL (295) 85
+ENDL (296) 73
+VOID (297) 16
+IDENTIFIER (298) 7 12 17 22 28 29 30 31 33 34 35 36 38 39 41 42 43
+    44 45 46 47 54 55 56 57 58 67 68 77 78 79 97
+INT_CONSTANT (299) 13 28 42 52 55 57 78 98
+FLOAT_CONSTANT (300) 14 26 33 43 53 56 58 59 79 99
+CUSTOM_TYPE (301)
+
+
+Nonterminals, with rules where they appear
+
+$accept (47)
+    on left: 0
+program (48)
+    on left: 1, on right: 0
+declarare_functie (49)
+    on left: 2 3, on right: 1 3
+antet (50)
+    on left: 4, on right: 5
+functie (51)
+    on left: 5, on right: 2 3
+apelare_functie (52)
+    on left: 6, on right: 47 90
+corp_functie_apelare (53)
+    on left: 7, on right: 6
+parametri_opt_apelare (54)
+    on left: 8 9, on right: 7
+lista_parametri_apelare (55)
+    on left: 10 11, on right: 8 11
+tip_parametri_apelare (56)
+    on left: 12 13 14, on right: 10 11 72
+tip_return (57)
+    on left: 15 16, on right: 4
+corp_functie (58)
+    on left: 17, on right: 4
+parametri_opt (59)
+    on left: 18 19, on right: 17
+lista_parametri (60)
+    on left: 20 21, on right: 18 21
+parametru (61)
+    on left: 22, on right: 20 21
+tip_de_date (62)
+    on left: 23 24 25, on right: 15 22 26
+cerc (63)
+    on left: 26, on right: 38 39
+atribuire_int (64)
+    on left: 27 28 29 30 31, on right: 48
+atribuire_float (65)
+    on left: 32 33 34 35 36, on right: 49
+atribuire_cerc (66)
+    on left: 37 38 39, on right: 50
+atribuire_identificator (67)
+    on left: 40 41 42 43 44 45 46, on right: 51
+atribuire_apelare (68)
+    on left: 47, on right: 27 32 37 40
+atribuire_variabile (69)
+    on left: 48 49 50 51, on right: 87 91
+operatii_numere_int (70)
+    on left: 52, on right: 30 44
+operatii_numere_float (71)
+    on left: 53, on right: 35 45
+operatii_variabile (72)
+    on left: 54 55 56 57 58 59, on right: 31 36 46
+operatii_int (73)
+    on left: 60 61, on right: 52 54 55 56 57 58 59
+operatii_float (74)
+    on left: 62 63 64 65, on right: 53 60
+intrare (75)
+    on left: 66, on right: 92
+elemente_intrare (76)
+    on left: 67 68, on right: 66 68
+iesire (77)
+    on left: 69, on right: 93
+elemente_iesire (78)
+    on left: 70 71, on right: 69 71
+tip_el_iesire (79)
+    on left: 72 73, on right: 70 71
+selectie_conditionala (80)
+    on left: 74 75, on right: 94
+selectie_conditionala_prima_parte (81)
+    on left: 76, on right: 74 75
+conditie (82)
+    on left: 77 78 79, on right: 76 86 87
+operator_conditional (83)
+    on left: 80 81 82 83 84 85, on right: 77 78 79
+instructiune_de_ciclare (84)
+    on left: 86 87, on right: 95
+instructiuni (85)
+    on left: 88 89, on right: 5 75 76 86 87 89
+tip_de_instructiune (86)
+    on left: 90 91 92 93 94 95 96, on right: 88 89
+return_el (87)
+    on left: 97 98 99, on right: 100
+return (88)
+    on left: 100, on right: 96
+
+
+state 0
+
+    0 $accept: . program $end
+
+    INCLUDE  shift, and go to state 1
+
+    program  go to state 2
+
+
+state 1
+
+    1 program: INCLUDE . IOSTREAM USING NAMESPACE STD SEMICOLON declarare_functie
+
+    IOSTREAM  shift, and go to state 3
+
+
+state 2
+
+    0 $accept: program . $end
+
+    $end  shift, and go to state 4
+
+
+state 3
+
+    1 program: INCLUDE IOSTREAM . USING NAMESPACE STD SEMICOLON declarare_functie
+
+    USING  shift, and go to state 5
+
+
+state 4
+
+    0 $accept: program $end .
+
+    $default  accept
+
+
+state 5
+
+    1 program: INCLUDE IOSTREAM USING . NAMESPACE STD SEMICOLON declarare_functie
+
+    NAMESPACE  shift, and go to state 6
+
+
+state 6
+
+    1 program: INCLUDE IOSTREAM USING NAMESPACE . STD SEMICOLON declarare_functie
+
+    STD  shift, and go to state 7
+
+
+state 7
+
+    1 program: INCLUDE IOSTREAM USING NAMESPACE STD . SEMICOLON declarare_functie
+
+    SEMICOLON  shift, and go to state 8
+
+
+state 8
+
+    1 program: INCLUDE IOSTREAM USING NAMESPACE STD SEMICOLON . declarare_functie
+
+    INT_TYPE    shift, and go to state 9
+    FLOAT_TYPE  shift, and go to state 10
+    CERC        shift, and go to state 11
+    VOID        shift, and go to state 12
+
+    declarare_functie  go to state 13
+    antet              go to state 14
+    functie            go to state 15
+    tip_return         go to state 16
+    tip_de_date        go to state 17
+
+
+state 9
+
+   23 tip_de_date: INT_TYPE .
+
+    $default  reduce using rule 23 (tip_de_date)
+
+
+state 10
+
+   24 tip_de_date: FLOAT_TYPE .
+
+    $default  reduce using rule 24 (tip_de_date)
+
+
+state 11
+
+   25 tip_de_date: CERC .
+
+    $default  reduce using rule 25 (tip_de_date)
+
+
+state 12
+
+   16 tip_return: VOID .
+
+    $default  reduce using rule 16 (tip_return)
+
+
+state 13
+
+    1 program: INCLUDE IOSTREAM USING NAMESPACE STD SEMICOLON declarare_functie .
+
+    $default  reduce using rule 1 (program)
+
+
+state 14
+
+    5 functie: antet . OPEN_BRACE instructiuni CLOSE_BRACE
+
+    OPEN_BRACE  shift, and go to state 18
+
+
+state 15
+
+    2 declarare_functie: functie .
+    3                  | functie . declarare_functie
+
+    INT_TYPE    shift, and go to state 9
+    FLOAT_TYPE  shift, and go to state 10
+    CERC        shift, and go to state 11
+    VOID        shift, and go to state 12
+
+    $default  reduce using rule 2 (declarare_functie)
+
+    declarare_functie  go to state 19
+    antet              go to state 14
+    functie            go to state 15
+    tip_return         go to state 16
+    tip_de_date        go to state 17
+
+
+state 16
+
+    4 antet: tip_return . corp_functie
+
+    IDENTIFIER  shift, and go to state 20
+
+    corp_functie  go to state 21
+
+
+state 17
+
+   15 tip_return: tip_de_date .
+
+    $default  reduce using rule 15 (tip_return)
+
+
+state 18
+
+    5 functie: antet OPEN_BRACE . instructiuni CLOSE_BRACE
+
+    INT_TYPE    shift, and go to state 22
+    FLOAT_TYPE  shift, and go to state 23
+    CERC        shift, and go to state 24
+    CIN         shift, and go to state 25
+    COUT        shift, and go to state 26
+    IF          shift, and go to state 27
+    FOR         shift, and go to state 28
+    WHILE       shift, and go to state 29
+    RETURN      shift, and go to state 30
+    IDENTIFIER  shift, and go to state 31
+
+    apelare_functie                    go to state 32
+    corp_functie_apelare               go to state 33
+    atribuire_int                      go to state 34
+    atribuire_float                    go to state 35
+    atribuire_cerc                     go to state 36
+    atribuire_identificator            go to state 37
+    atribuire_apelare                  go to state 38
+    atribuire_variabile                go to state 39
+    intrare                            go to state 40
+    iesire                             go to state 41
+    selectie_conditionala              go to state 42
+    selectie_conditionala_prima_parte  go to state 43
+    instructiune_de_ciclare            go to state 44
+    instructiuni                       go to state 45
+    tip_de_instructiune                go to state 46
+    return_el                          go to state 47
+    return                             go to state 48
+
+
+state 19
+
+    3 declarare_functie: functie declarare_functie .
+
+    $default  reduce using rule 3 (declarare_functie)
+
+
+state 20
+
+   17 corp_functie: IDENTIFIER . OPEN_PAREN parametri_opt CLOSE_PAREN
+
+    OPEN_PAREN  shift, and go to state 49
+
+
+state 21
+
+    4 antet: tip_return corp_functie .
+
+    $default  reduce using rule 4 (antet)
+
+
+state 22
+
+   27 atribuire_int: INT_TYPE . atribuire_apelare
+   28              | INT_TYPE . IDENTIFIER ASSIGN INT_CONSTANT
+   29              | INT_TYPE . IDENTIFIER ASSIGN IDENTIFIER
+   30              | INT_TYPE . IDENTIFIER ASSIGN operatii_numere_int
+   31              | INT_TYPE . IDENTIFIER ASSIGN operatii_variabile
+
+    IDENTIFIER  shift, and go to state 50
+
+    atribuire_apelare  go to state 51
+
+
+state 23
+
+   32 atribuire_float: FLOAT_TYPE . atribuire_apelare
+   33                | FLOAT_TYPE . IDENTIFIER ASSIGN FLOAT_CONSTANT
+   34                | FLOAT_TYPE . IDENTIFIER ASSIGN IDENTIFIER
+   35                | FLOAT_TYPE . IDENTIFIER ASSIGN operatii_numere_float
+   36                | FLOAT_TYPE . IDENTIFIER ASSIGN operatii_variabile
+
+    IDENTIFIER  shift, and go to state 52
+
+    atribuire_apelare  go to state 53
+
+
+state 24
+
+   37 atribuire_cerc: CERC . atribuire_apelare
+   38               | CERC . IDENTIFIER ASSIGN cerc
+
+    IDENTIFIER  shift, and go to state 54
+
+    atribuire_apelare  go to state 55
+
+
+state 25
+
+   66 intrare: CIN . elemente_intrare SEMICOLON
+
+    INPUT_OP  shift, and go to state 56
+
+    elemente_intrare  go to state 57
+
+
+state 26
+
+   69 iesire: COUT . elemente_iesire SEMICOLON
+
+    OUTPUT_OP  shift, and go to state 58
+
+    elemente_iesire  go to state 59
+
+
+state 27
+
+   76 selectie_conditionala_prima_parte: IF . OPEN_PAREN conditie CLOSE_PAREN instructiuni
+
+    OPEN_PAREN  shift, and go to state 60
+
+
+state 28
+
+   87 instructiune_de_ciclare: FOR . OPEN_PAREN atribuire_variabile SEMICOLON conditie SEMICOLON atribuire_variabile CLOSE_PAREN OPEN_BRACE instructiuni CLOSE_BRACE
+
+    OPEN_PAREN  shift, and go to state 61
+
+
+state 29
+
+   86 instructiune_de_ciclare: WHILE . OPEN_PAREN conditie CLOSE_PAREN OPEN_BRACE instructiuni CLOSE_BRACE
+
+    OPEN_PAREN  shift, and go to state 62
+
+
+state 30
+
+   97 return_el: RETURN . IDENTIFIER
+   98          | RETURN . INT_CONSTANT
+   99          | RETURN . FLOAT_CONSTANT
+
+    IDENTIFIER      shift, and go to state 63
+    INT_CONSTANT    shift, and go to state 64
+    FLOAT_CONSTANT  shift, and go to state 65
+
+
+state 31
+
+    7 corp_functie_apelare: IDENTIFIER . OPEN_PAREN parametri_opt_apelare CLOSE_PAREN
+   39 atribuire_cerc: IDENTIFIER . ASSIGN cerc
+   41 atribuire_identificator: IDENTIFIER . ASSIGN IDENTIFIER
+   42                        | IDENTIFIER . ASSIGN INT_CONSTANT
+   43                        | IDENTIFIER . ASSIGN FLOAT_CONSTANT
+   44                        | IDENTIFIER . ASSIGN operatii_numere_int
+   45                        | IDENTIFIER . ASSIGN operatii_numere_float
+   46                        | IDENTIFIER . ASSIGN operatii_variabile
+   47 atribuire_apelare: IDENTIFIER . ASSIGN apelare_functie
+
+    OPEN_PAREN  shift, and go to state 66
+    ASSIGN      shift, and go to state 67
+
+
+state 32
+
+   90 tip_de_instructiune: apelare_functie . SEMICOLON
+
+    SEMICOLON  shift, and go to state 68
+
+
+state 33
+
+    6 apelare_functie: corp_functie_apelare .
+
+    $default  reduce using rule 6 (apelare_functie)
+
+
+state 34
+
+   48 atribuire_variabile: atribuire_int .
+
+    $default  reduce using rule 48 (atribuire_variabile)
+
+
+state 35
+
+   49 atribuire_variabile: atribuire_float .
+
+    $default  reduce using rule 49 (atribuire_variabile)
+
+
+state 36
+
+   50 atribuire_variabile: atribuire_cerc .
+
+    $default  reduce using rule 50 (atribuire_variabile)
+
+
+state 37
+
+   51 atribuire_variabile: atribuire_identificator .
+
+    $default  reduce using rule 51 (atribuire_variabile)
+
+
+state 38
+
+   40 atribuire_identificator: atribuire_apelare .
+
+    $default  reduce using rule 40 (atribuire_identificator)
+
+
+state 39
+
+   91 tip_de_instructiune: atribuire_variabile . SEMICOLON
+
+    SEMICOLON  shift, and go to state 69
+
+
+state 40
+
+   92 tip_de_instructiune: intrare .
+
+    $default  reduce using rule 92 (tip_de_instructiune)
+
+
+state 41
+
+   93 tip_de_instructiune: iesire .
+
+    $default  reduce using rule 93 (tip_de_instructiune)
+
+
+state 42
+
+   94 tip_de_instructiune: selectie_conditionala .
+
+    $default  reduce using rule 94 (tip_de_instructiune)
+
+
+state 43
+
+   74 selectie_conditionala: selectie_conditionala_prima_parte .
+   75                      | selectie_conditionala_prima_parte . ELSE instructiuni
+
+    ELSE  shift, and go to state 70
+
+    ELSE      [reduce using rule 74 (selectie_conditionala)]
+    $default  reduce using rule 74 (selectie_conditionala)
+
+
+state 44
+
+   95 tip_de_instructiune: instructiune_de_ciclare .
+
+    $default  reduce using rule 95 (tip_de_instructiune)
+
+
+state 45
+
+    5 functie: antet OPEN_BRACE instructiuni . CLOSE_BRACE
+   89 instructiuni: instructiuni . tip_de_instructiune
+
+    CLOSE_BRACE  shift, and go to state 71
+    INT_TYPE     shift, and go to state 22
+    FLOAT_TYPE   shift, and go to state 23
+    CERC         shift, and go to state 24
+    CIN          shift, and go to state 25
+    COUT         shift, and go to state 26
+    IF           shift, and go to state 27
+    FOR          shift, and go to state 28
+    WHILE        shift, and go to state 29
+    RETURN       shift, and go to state 30
+    IDENTIFIER   shift, and go to state 31
+
+    apelare_functie                    go to state 32
+    corp_functie_apelare               go to state 33
+    atribuire_int                      go to state 34
+    atribuire_float                    go to state 35
+    atribuire_cerc                     go to state 36
+    atribuire_identificator            go to state 37
+    atribuire_apelare                  go to state 38
+    atribuire_variabile                go to state 39
+    intrare                            go to state 40
+    iesire                             go to state 41
+    selectie_conditionala              go to state 42
+    selectie_conditionala_prima_parte  go to state 43
+    instructiune_de_ciclare            go to state 44
+    tip_de_instructiune                go to state 72
+    return_el                          go to state 47
+    return                             go to state 48
+
+
+state 46
+
+   88 instructiuni: tip_de_instructiune .
+
+    $default  reduce using rule 88 (instructiuni)
+
+
+state 47
+
+  100 return: return_el . SEMICOLON
+
+    SEMICOLON  shift, and go to state 73
+
+
+state 48
+
+   96 tip_de_instructiune: return .
+
+    $default  reduce using rule 96 (tip_de_instructiune)
+
+
+state 49
+
+   17 corp_functie: IDENTIFIER OPEN_PAREN . parametri_opt CLOSE_PAREN
+
+    INT_TYPE    shift, and go to state 9
+    FLOAT_TYPE  shift, and go to state 10
+    CERC        shift, and go to state 11
+
+    $default  reduce using rule 19 (parametri_opt)
+
+    parametri_opt    go to state 74
+    lista_parametri  go to state 75
+    parametru        go to state 76
+    tip_de_date      go to state 77
+
+
+state 50
+
+   28 atribuire_int: INT_TYPE IDENTIFIER . ASSIGN INT_CONSTANT
+   29              | INT_TYPE IDENTIFIER . ASSIGN IDENTIFIER
+   30              | INT_TYPE IDENTIFIER . ASSIGN operatii_numere_int
+   31              | INT_TYPE IDENTIFIER . ASSIGN operatii_variabile
+   47 atribuire_apelare: IDENTIFIER . ASSIGN apelare_functie
+
+    ASSIGN  shift, and go to state 78
+
+
+state 51
+
+   27 atribuire_int: INT_TYPE atribuire_apelare .
+
+    $default  reduce using rule 27 (atribuire_int)
+
+
+state 52
+
+   33 atribuire_float: FLOAT_TYPE IDENTIFIER . ASSIGN FLOAT_CONSTANT
+   34                | FLOAT_TYPE IDENTIFIER . ASSIGN IDENTIFIER
+   35                | FLOAT_TYPE IDENTIFIER . ASSIGN operatii_numere_float
+   36                | FLOAT_TYPE IDENTIFIER . ASSIGN operatii_variabile
+   47 atribuire_apelare: IDENTIFIER . ASSIGN apelare_functie
+
+    ASSIGN  shift, and go to state 79
+
+
+state 53
+
+   32 atribuire_float: FLOAT_TYPE atribuire_apelare .
+
+    $default  reduce using rule 32 (atribuire_float)
+
+
+state 54
+
+   38 atribuire_cerc: CERC IDENTIFIER . ASSIGN cerc
+   47 atribuire_apelare: IDENTIFIER . ASSIGN apelare_functie
+
+    ASSIGN  shift, and go to state 80
+
+
+state 55
+
+   37 atribuire_cerc: CERC atribuire_apelare .
+
+    $default  reduce using rule 37 (atribuire_cerc)
+
+
+state 56
+
+   67 elemente_intrare: INPUT_OP . IDENTIFIER
+   68                 | INPUT_OP . IDENTIFIER elemente_intrare
+
+    IDENTIFIER  shift, and go to state 81
+
+
+state 57
+
+   66 intrare: CIN elemente_intrare . SEMICOLON
+
+    SEMICOLON  shift, and go to state 82
+
+
+state 58
+
+   70 elemente_iesire: OUTPUT_OP . tip_el_iesire
+   71                | OUTPUT_OP . tip_el_iesire elemente_iesire
+
+    ENDL            shift, and go to state 83
+    IDENTIFIER      shift, and go to state 84
+    INT_CONSTANT    shift, and go to state 85
+    FLOAT_CONSTANT  shift, and go to state 86
+
+    tip_parametri_apelare  go to state 87
+    tip_el_iesire          go to state 88
+
+
+state 59
+
+   69 iesire: COUT elemente_iesire . SEMICOLON
+
+    SEMICOLON  shift, and go to state 89
+
+
+state 60
+
+   76 selectie_conditionala_prima_parte: IF OPEN_PAREN . conditie CLOSE_PAREN instructiuni
+
+    IDENTIFIER  shift, and go to state 90
+
+    conditie  go to state 91
+
+
+state 61
+
+   87 instructiune_de_ciclare: FOR OPEN_PAREN . atribuire_variabile SEMICOLON conditie SEMICOLON atribuire_variabile CLOSE_PAREN OPEN_BRACE instructiuni CLOSE_BRACE
+
+    INT_TYPE    shift, and go to state 22
+    FLOAT_TYPE  shift, and go to state 23
+    CERC        shift, and go to state 24
+    IDENTIFIER  shift, and go to state 92
+
+    atribuire_int            go to state 34
+    atribuire_float          go to state 35
+    atribuire_cerc           go to state 36
+    atribuire_identificator  go to state 37
+    atribuire_apelare        go to state 38
+    atribuire_variabile      go to state 93
+
+
+state 62
+
+   86 instructiune_de_ciclare: WHILE OPEN_PAREN . conditie CLOSE_PAREN OPEN_BRACE instructiuni CLOSE_BRACE
+
+    IDENTIFIER  shift, and go to state 90
+
+    conditie  go to state 94
+
+
+state 63
+
+   97 return_el: RETURN IDENTIFIER .
+
+    $default  reduce using rule 97 (return_el)
+
+
+state 64
+
+   98 return_el: RETURN INT_CONSTANT .
+
+    $default  reduce using rule 98 (return_el)
+
+
+state 65
+
+   99 return_el: RETURN FLOAT_CONSTANT .
+
+    $default  reduce using rule 99 (return_el)
+
+
+state 66
+
+    7 corp_functie_apelare: IDENTIFIER OPEN_PAREN . parametri_opt_apelare CLOSE_PAREN
+
+    IDENTIFIER      shift, and go to state 84
+    INT_CONSTANT    shift, and go to state 85
+    FLOAT_CONSTANT  shift, and go to state 86
+
+    $default  reduce using rule 9 (parametri_opt_apelare)
+
+    parametri_opt_apelare    go to state 95
+    lista_parametri_apelare  go to state 96
+    tip_parametri_apelare    go to state 97
+
+
+state 67
+
+   39 atribuire_cerc: IDENTIFIER ASSIGN . cerc
+   41 atribuire_identificator: IDENTIFIER ASSIGN . IDENTIFIER
+   42                        | IDENTIFIER ASSIGN . INT_CONSTANT
+   43                        | IDENTIFIER ASSIGN . FLOAT_CONSTANT
+   44                        | IDENTIFIER ASSIGN . operatii_numere_int
+   45                        | IDENTIFIER ASSIGN . operatii_numere_float
+   46                        | IDENTIFIER ASSIGN . operatii_variabile
+   47 atribuire_apelare: IDENTIFIER ASSIGN . apelare_functie
+
+    CERC            shift, and go to state 98
+    IDENTIFIER      shift, and go to state 99
+    INT_CONSTANT    shift, and go to state 100
+    FLOAT_CONSTANT  shift, and go to state 101
+
+    apelare_functie        go to state 102
+    corp_functie_apelare   go to state 33
+    cerc                   go to state 103
+    operatii_numere_int    go to state 104
+    operatii_numere_float  go to state 105
+    operatii_variabile     go to state 106
+
+
+state 68
+
+   90 tip_de_instructiune: apelare_functie SEMICOLON .
+
+    $default  reduce using rule 90 (tip_de_instructiune)
+
+
+state 69
+
+   91 tip_de_instructiune: atribuire_variabile SEMICOLON .
+
+    $default  reduce using rule 91 (tip_de_instructiune)
+
+
+state 70
+
+   75 selectie_conditionala: selectie_conditionala_prima_parte ELSE . instructiuni
+
+    INT_TYPE    shift, and go to state 22
+    FLOAT_TYPE  shift, and go to state 23
+    CERC        shift, and go to state 24
+    CIN         shift, and go to state 25
+    COUT        shift, and go to state 26
+    IF          shift, and go to state 27
+    FOR         shift, and go to state 28
+    WHILE       shift, and go to state 29
+    RETURN      shift, and go to state 30
+    IDENTIFIER  shift, and go to state 31
+
+    apelare_functie                    go to state 32
+    corp_functie_apelare               go to state 33
+    atribuire_int                      go to state 34
+    atribuire_float                    go to state 35
+    atribuire_cerc                     go to state 36
+    atribuire_identificator            go to state 37
+    atribuire_apelare                  go to state 38
+    atribuire_variabile                go to state 39
+    intrare                            go to state 40
+    iesire                             go to state 41
+    selectie_conditionala              go to state 42
+    selectie_conditionala_prima_parte  go to state 43
+    instructiune_de_ciclare            go to state 44
+    instructiuni                       go to state 107
+    tip_de_instructiune                go to state 46
+    return_el                          go to state 47
+    return                             go to state 48
+
+
+state 71
+
+    5 functie: antet OPEN_BRACE instructiuni CLOSE_BRACE .
+
+    $default  reduce using rule 5 (functie)
+
+
+state 72
+
+   89 instructiuni: instructiuni tip_de_instructiune .
+
+    $default  reduce using rule 89 (instructiuni)
+
+
+state 73
+
+  100 return: return_el SEMICOLON .
+
+    $default  reduce using rule 100 (return)
+
+
+state 74
+
+   17 corp_functie: IDENTIFIER OPEN_PAREN parametri_opt . CLOSE_PAREN
+
+    CLOSE_PAREN  shift, and go to state 108
+
+
+state 75
+
+   18 parametri_opt: lista_parametri .
+
+    $default  reduce using rule 18 (parametri_opt)
+
+
+state 76
+
+   20 lista_parametri: parametru .
+   21                | parametru . COMMA lista_parametri
+
+    COMMA  shift, and go to state 109
+
+    $default  reduce using rule 20 (lista_parametri)
+
+
+state 77
+
+   22 parametru: tip_de_date . IDENTIFIER
+
+    IDENTIFIER  shift, and go to state 110
+
+
+state 78
+
+   28 atribuire_int: INT_TYPE IDENTIFIER ASSIGN . INT_CONSTANT
+   29              | INT_TYPE IDENTIFIER ASSIGN . IDENTIFIER
+   30              | INT_TYPE IDENTIFIER ASSIGN . operatii_numere_int
+   31              | INT_TYPE IDENTIFIER ASSIGN . operatii_variabile
+   47 atribuire_apelare: IDENTIFIER ASSIGN . apelare_functie
+
+    IDENTIFIER      shift, and go to state 111
+    INT_CONSTANT    shift, and go to state 112
+    FLOAT_CONSTANT  shift, and go to state 113
+
+    apelare_functie       go to state 102
+    corp_functie_apelare  go to state 33
+    operatii_numere_int   go to state 114
+    operatii_variabile    go to state 115
+
+
+state 79
+
+   33 atribuire_float: FLOAT_TYPE IDENTIFIER ASSIGN . FLOAT_CONSTANT
+   34                | FLOAT_TYPE IDENTIFIER ASSIGN . IDENTIFIER
+   35                | FLOAT_TYPE IDENTIFIER ASSIGN . operatii_numere_float
+   36                | FLOAT_TYPE IDENTIFIER ASSIGN . operatii_variabile
+   47 atribuire_apelare: IDENTIFIER ASSIGN . apelare_functie
+
+    IDENTIFIER      shift, and go to state 116
+    INT_CONSTANT    shift, and go to state 117
+    FLOAT_CONSTANT  shift, and go to state 118
+
+    apelare_functie        go to state 102
+    corp_functie_apelare   go to state 33
+    operatii_numere_float  go to state 119
+    operatii_variabile     go to state 120
+
+
+state 80
+
+   38 atribuire_cerc: CERC IDENTIFIER ASSIGN . cerc
+   47 atribuire_apelare: IDENTIFIER ASSIGN . apelare_functie
+
+    CERC        shift, and go to state 98
+    IDENTIFIER  shift, and go to state 121
+
+    apelare_functie       go to state 102
+    corp_functie_apelare  go to state 33
+    cerc                  go to state 122
+
+
+state 81
+
+   67 elemente_intrare: INPUT_OP IDENTIFIER .
+   68                 | INPUT_OP IDENTIFIER . elemente_intrare
+
+    INPUT_OP  shift, and go to state 56
+
+    $default  reduce using rule 67 (elemente_intrare)
+
+    elemente_intrare  go to state 123
+
+
+state 82
+
+   66 intrare: CIN elemente_intrare SEMICOLON .
+
+    $default  reduce using rule 66 (intrare)
+
+
+state 83
+
+   73 tip_el_iesire: ENDL .
+
+    $default  reduce using rule 73 (tip_el_iesire)
+
+
+state 84
+
+   12 tip_parametri_apelare: IDENTIFIER .
+
+    $default  reduce using rule 12 (tip_parametri_apelare)
+
+
+state 85
+
+   13 tip_parametri_apelare: INT_CONSTANT .
+
+    $default  reduce using rule 13 (tip_parametri_apelare)
+
+
+state 86
+
+   14 tip_parametri_apelare: FLOAT_CONSTANT .
+
+    $default  reduce using rule 14 (tip_parametri_apelare)
+
+
+state 87
+
+   72 tip_el_iesire: tip_parametri_apelare .
+
+    $default  reduce using rule 72 (tip_el_iesire)
+
+
+state 88
+
+   70 elemente_iesire: OUTPUT_OP tip_el_iesire .
+   71                | OUTPUT_OP tip_el_iesire . elemente_iesire
+
+    OUTPUT_OP  shift, and go to state 58
+
+    $default  reduce using rule 70 (elemente_iesire)
+
+    elemente_iesire  go to state 124
+
+
+state 89
+
+   69 iesire: COUT elemente_iesire SEMICOLON .
+
+    $default  reduce using rule 69 (iesire)
+
+
+state 90
+
+   77 conditie: IDENTIFIER . operator_conditional IDENTIFIER
+   78         | IDENTIFIER . operator_conditional INT_CONSTANT
+   79         | IDENTIFIER . operator_conditional FLOAT_CONSTANT
+
+    EQUAL               shift, and go to state 125
+    LESS_THAN           shift, and go to state 126
+    GREATER_THAN        shift, and go to state 127
+    LESS_THAN_EQUAL     shift, and go to state 128
+    GREATER_THAN_EQUAL  shift, and go to state 129
+    NOT_EQUAL           shift, and go to state 130
+
+    operator_conditional  go to state 131
+
+
+state 91
+
+   76 selectie_conditionala_prima_parte: IF OPEN_PAREN conditie . CLOSE_PAREN instructiuni
+
+    CLOSE_PAREN  shift, and go to state 132
+
+
+state 92
+
+   39 atribuire_cerc: IDENTIFIER . ASSIGN cerc
+   41 atribuire_identificator: IDENTIFIER . ASSIGN IDENTIFIER
+   42                        | IDENTIFIER . ASSIGN INT_CONSTANT
+   43                        | IDENTIFIER . ASSIGN FLOAT_CONSTANT
+   44                        | IDENTIFIER . ASSIGN operatii_numere_int
+   45                        | IDENTIFIER . ASSIGN operatii_numere_float
+   46                        | IDENTIFIER . ASSIGN operatii_variabile
+   47 atribuire_apelare: IDENTIFIER . ASSIGN apelare_functie
+
+    ASSIGN  shift, and go to state 67
+
+
+state 93
+
+   87 instructiune_de_ciclare: FOR OPEN_PAREN atribuire_variabile . SEMICOLON conditie SEMICOLON atribuire_variabile CLOSE_PAREN OPEN_BRACE instructiuni CLOSE_BRACE
+
+    SEMICOLON  shift, and go to state 133
+
+
+state 94
+
+   86 instructiune_de_ciclare: WHILE OPEN_PAREN conditie . CLOSE_PAREN OPEN_BRACE instructiuni CLOSE_BRACE
+
+    CLOSE_PAREN  shift, and go to state 134
+
+
+state 95
+
+    7 corp_functie_apelare: IDENTIFIER OPEN_PAREN parametri_opt_apelare . CLOSE_PAREN
+
+    CLOSE_PAREN  shift, and go to state 135
+
+
+state 96
+
+    8 parametri_opt_apelare: lista_parametri_apelare .
+
+    $default  reduce using rule 8 (parametri_opt_apelare)
+
+
+state 97
+
+   10 lista_parametri_apelare: tip_parametri_apelare .
+   11                        | tip_parametri_apelare . COMMA lista_parametri_apelare
+
+    COMMA  shift, and go to state 136
+
+    $default  reduce using rule 10 (lista_parametri_apelare)
+
+
+state 98
+
+   26 cerc: CERC . OPEN_PAREN tip_de_date FLOAT_CONSTANT CLOSE_PAREN
+
+    OPEN_PAREN  shift, and go to state 137
+
+
+state 99
+
+    7 corp_functie_apelare: IDENTIFIER . OPEN_PAREN parametri_opt_apelare CLOSE_PAREN
+   41 atribuire_identificator: IDENTIFIER ASSIGN IDENTIFIER .
+   54 operatii_variabile: IDENTIFIER . operatii_int IDENTIFIER
+   55                   | IDENTIFIER . operatii_int INT_CONSTANT
+   56                   | IDENTIFIER . operatii_int FLOAT_CONSTANT
+
+    OPEN_PAREN  shift, and go to state 66
+    PLUS        shift, and go to state 138
+    MINUS       shift, and go to state 139
+    MULTIPLY    shift, and go to state 140
+    DIVIDE      shift, and go to state 141
+    MODULO      shift, and go to state 142
+
+    $default  reduce using rule 41 (atribuire_identificator)
+
+    operatii_int    go to state 143
+    operatii_float  go to state 144
+
+
+state 100
+
+   42 atribuire_identificator: IDENTIFIER ASSIGN INT_CONSTANT .
+   52 operatii_numere_int: INT_CONSTANT . operatii_int INT_CONSTANT
+   57 operatii_variabile: INT_CONSTANT . operatii_int IDENTIFIER
+
+    PLUS      shift, and go to state 138
+    MINUS     shift, and go to state 139
+    MULTIPLY  shift, and go to state 140
+    DIVIDE    shift, and go to state 141
+    MODULO    shift, and go to state 142
+
+    $default  reduce using rule 42 (atribuire_identificator)
+
+    operatii_int    go to state 145
+    operatii_float  go to state 144
+
+
+state 101
+
+   43 atribuire_identificator: IDENTIFIER ASSIGN FLOAT_CONSTANT .
+   53 operatii_numere_float: FLOAT_CONSTANT . operatii_float FLOAT_CONSTANT
+   58 operatii_variabile: FLOAT_CONSTANT . operatii_int IDENTIFIER
+   59                   | FLOAT_CONSTANT . operatii_int FLOAT_CONSTANT
+
+    PLUS      shift, and go to state 138
+    MINUS     shift, and go to state 139
+    MULTIPLY  shift, and go to state 140
+    DIVIDE    shift, and go to state 141
+    MODULO    shift, and go to state 142
+
+    $default  reduce using rule 43 (atribuire_identificator)
+
+    operatii_int    go to state 146
+    operatii_float  go to state 147
+
+
+state 102
+
+   47 atribuire_apelare: IDENTIFIER ASSIGN apelare_functie .
+
+    $default  reduce using rule 47 (atribuire_apelare)
+
+
+state 103
+
+   39 atribuire_cerc: IDENTIFIER ASSIGN cerc .
+
+    $default  reduce using rule 39 (atribuire_cerc)
+
+
+state 104
+
+   44 atribuire_identificator: IDENTIFIER ASSIGN operatii_numere_int .
+
+    $default  reduce using rule 44 (atribuire_identificator)
+
+
+state 105
+
+   45 atribuire_identificator: IDENTIFIER ASSIGN operatii_numere_float .
+
+    $default  reduce using rule 45 (atribuire_identificator)
+
+
+state 106
+
+   46 atribuire_identificator: IDENTIFIER ASSIGN operatii_variabile .
+
+    $default  reduce using rule 46 (atribuire_identificator)
+
+
+state 107
+
+   75 selectie_conditionala: selectie_conditionala_prima_parte ELSE instructiuni .
+   89 instructiuni: instructiuni . tip_de_instructiune
+
+    INT_TYPE    shift, and go to state 22
+    FLOAT_TYPE  shift, and go to state 23
+    CERC        shift, and go to state 24
+    CIN         shift, and go to state 25
+    COUT        shift, and go to state 26
+    IF          shift, and go to state 27
+    FOR         shift, and go to state 28
+    WHILE       shift, and go to state 29
+    RETURN      shift, and go to state 30
+    IDENTIFIER  shift, and go to state 31
+
+    INT_TYPE    [reduce using rule 75 (selectie_conditionala)]
+    FLOAT_TYPE  [reduce using rule 75 (selectie_conditionala)]
+    CERC        [reduce using rule 75 (selectie_conditionala)]
+    CIN         [reduce using rule 75 (selectie_conditionala)]
+    COUT        [reduce using rule 75 (selectie_conditionala)]
+    IF          [reduce using rule 75 (selectie_conditionala)]
+    FOR         [reduce using rule 75 (selectie_conditionala)]
+    WHILE       [reduce using rule 75 (selectie_conditionala)]
+    RETURN      [reduce using rule 75 (selectie_conditionala)]
+    IDENTIFIER  [reduce using rule 75 (selectie_conditionala)]
+    $default    reduce using rule 75 (selectie_conditionala)
+
+    apelare_functie                    go to state 32
+    corp_functie_apelare               go to state 33
+    atribuire_int                      go to state 34
+    atribuire_float                    go to state 35
+    atribuire_cerc                     go to state 36
+    atribuire_identificator            go to state 37
+    atribuire_apelare                  go to state 38
+    atribuire_variabile                go to state 39
+    intrare                            go to state 40
+    iesire                             go to state 41
+    selectie_conditionala              go to state 42
+    selectie_conditionala_prima_parte  go to state 43
+    instructiune_de_ciclare            go to state 44
+    tip_de_instructiune                go to state 72
+    return_el                          go to state 47
+    return                             go to state 48
+
+
+state 108
+
+   17 corp_functie: IDENTIFIER OPEN_PAREN parametri_opt CLOSE_PAREN .
+
+    $default  reduce using rule 17 (corp_functie)
+
+
+state 109
+
+   21 lista_parametri: parametru COMMA . lista_parametri
+
+    INT_TYPE    shift, and go to state 9
+    FLOAT_TYPE  shift, and go to state 10
+    CERC        shift, and go to state 11
+
+    lista_parametri  go to state 148
+    parametru        go to state 76
+    tip_de_date      go to state 77
+
+
+state 110
+
+   22 parametru: tip_de_date IDENTIFIER .
+
+    $default  reduce using rule 22 (parametru)
+
+
+state 111
+
+    7 corp_functie_apelare: IDENTIFIER . OPEN_PAREN parametri_opt_apelare CLOSE_PAREN
+   29 atribuire_int: INT_TYPE IDENTIFIER ASSIGN IDENTIFIER .
+   54 operatii_variabile: IDENTIFIER . operatii_int IDENTIFIER
+   55                   | IDENTIFIER . operatii_int INT_CONSTANT
+   56                   | IDENTIFIER . operatii_int FLOAT_CONSTANT
+
+    OPEN_PAREN  shift, and go to state 66
+    PLUS        shift, and go to state 138
+    MINUS       shift, and go to state 139
+    MULTIPLY    shift, and go to state 140
+    DIVIDE      shift, and go to state 141
+    MODULO      shift, and go to state 142
+
+    $default  reduce using rule 29 (atribuire_int)
+
+    operatii_int    go to state 143
+    operatii_float  go to state 144
+
+
+state 112
+
+   28 atribuire_int: INT_TYPE IDENTIFIER ASSIGN INT_CONSTANT .
+   52 operatii_numere_int: INT_CONSTANT . operatii_int INT_CONSTANT
+   57 operatii_variabile: INT_CONSTANT . operatii_int IDENTIFIER
+
+    PLUS      shift, and go to state 138
+    MINUS     shift, and go to state 139
+    MULTIPLY  shift, and go to state 140
+    DIVIDE    shift, and go to state 141
+    MODULO    shift, and go to state 142
+
+    $default  reduce using rule 28 (atribuire_int)
+
+    operatii_int    go to state 145
+    operatii_float  go to state 144
+
+
+state 113
+
+   58 operatii_variabile: FLOAT_CONSTANT . operatii_int IDENTIFIER
+   59                   | FLOAT_CONSTANT . operatii_int FLOAT_CONSTANT
+
+    PLUS      shift, and go to state 138
+    MINUS     shift, and go to state 139
+    MULTIPLY  shift, and go to state 140
+    DIVIDE    shift, and go to state 141
+    MODULO    shift, and go to state 142
+
+    operatii_int    go to state 146
+    operatii_float  go to state 144
+
+
+state 114
+
+   30 atribuire_int: INT_TYPE IDENTIFIER ASSIGN operatii_numere_int .
+
+    $default  reduce using rule 30 (atribuire_int)
+
+
+state 115
+
+   31 atribuire_int: INT_TYPE IDENTIFIER ASSIGN operatii_variabile .
+
+    $default  reduce using rule 31 (atribuire_int)
+
+
+state 116
+
+    7 corp_functie_apelare: IDENTIFIER . OPEN_PAREN parametri_opt_apelare CLOSE_PAREN
+   34 atribuire_float: FLOAT_TYPE IDENTIFIER ASSIGN IDENTIFIER .
+   54 operatii_variabile: IDENTIFIER . operatii_int IDENTIFIER
+   55                   | IDENTIFIER . operatii_int INT_CONSTANT
+   56                   | IDENTIFIER . operatii_int FLOAT_CONSTANT
+
+    OPEN_PAREN  shift, and go to state 66
+    PLUS        shift, and go to state 138
+    MINUS       shift, and go to state 139
+    MULTIPLY    shift, and go to state 140
+    DIVIDE      shift, and go to state 141
+    MODULO      shift, and go to state 142
+
+    $default  reduce using rule 34 (atribuire_float)
+
+    operatii_int    go to state 143
+    operatii_float  go to state 144
+
+
+state 117
+
+   57 operatii_variabile: INT_CONSTANT . operatii_int IDENTIFIER
+
+    PLUS      shift, and go to state 138
+    MINUS     shift, and go to state 139
+    MULTIPLY  shift, and go to state 140
+    DIVIDE    shift, and go to state 141
+    MODULO    shift, and go to state 142
+
+    operatii_int    go to state 149
+    operatii_float  go to state 144
+
+
+state 118
+
+   33 atribuire_float: FLOAT_TYPE IDENTIFIER ASSIGN FLOAT_CONSTANT .
+   53 operatii_numere_float: FLOAT_CONSTANT . operatii_float FLOAT_CONSTANT
+   58 operatii_variabile: FLOAT_CONSTANT . operatii_int IDENTIFIER
+   59                   | FLOAT_CONSTANT . operatii_int FLOAT_CONSTANT
+
+    PLUS      shift, and go to state 138
+    MINUS     shift, and go to state 139
+    MULTIPLY  shift, and go to state 140
+    DIVIDE    shift, and go to state 141
+    MODULO    shift, and go to state 142
+
+    $default  reduce using rule 33 (atribuire_float)
+
+    operatii_int    go to state 146
+    operatii_float  go to state 147
+
+
+state 119
+
+   35 atribuire_float: FLOAT_TYPE IDENTIFIER ASSIGN operatii_numere_float .
+
+    $default  reduce using rule 35 (atribuire_float)
+
+
+state 120
+
+   36 atribuire_float: FLOAT_TYPE IDENTIFIER ASSIGN operatii_variabile .
+
+    $default  reduce using rule 36 (atribuire_float)
+
+
+state 121
+
+    7 corp_functie_apelare: IDENTIFIER . OPEN_PAREN parametri_opt_apelare CLOSE_PAREN
+
+    OPEN_PAREN  shift, and go to state 66
+
+
+state 122
+
+   38 atribuire_cerc: CERC IDENTIFIER ASSIGN cerc .
+
+    $default  reduce using rule 38 (atribuire_cerc)
+
+
+state 123
+
+   68 elemente_intrare: INPUT_OP IDENTIFIER elemente_intrare .
+
+    $default  reduce using rule 68 (elemente_intrare)
+
+
+state 124
+
+   71 elemente_iesire: OUTPUT_OP tip_el_iesire elemente_iesire .
+
+    $default  reduce using rule 71 (elemente_iesire)
+
+
+state 125
+
+   84 operator_conditional: EQUAL .
+
+    $default  reduce using rule 84 (operator_conditional)
+
+
+state 126
+
+   80 operator_conditional: LESS_THAN .
+
+    $default  reduce using rule 80 (operator_conditional)
+
+
+state 127
+
+   81 operator_conditional: GREATER_THAN .
+
+    $default  reduce using rule 81 (operator_conditional)
+
+
+state 128
+
+   82 operator_conditional: LESS_THAN_EQUAL .
+
+    $default  reduce using rule 82 (operator_conditional)
+
+
+state 129
+
+   83 operator_conditional: GREATER_THAN_EQUAL .
+
+    $default  reduce using rule 83 (operator_conditional)
+
+
+state 130
+
+   85 operator_conditional: NOT_EQUAL .
+
+    $default  reduce using rule 85 (operator_conditional)
+
+
+state 131
+
+   77 conditie: IDENTIFIER operator_conditional . IDENTIFIER
+   78         | IDENTIFIER operator_conditional . INT_CONSTANT
+   79         | IDENTIFIER operator_conditional . FLOAT_CONSTANT
+
+    IDENTIFIER      shift, and go to state 150
+    INT_CONSTANT    shift, and go to state 151
+    FLOAT_CONSTANT  shift, and go to state 152
+
+
+state 132
+
+   76 selectie_conditionala_prima_parte: IF OPEN_PAREN conditie CLOSE_PAREN . instructiuni
+
+    INT_TYPE    shift, and go to state 22
+    FLOAT_TYPE  shift, and go to state 23
+    CERC        shift, and go to state 24
+    CIN         shift, and go to state 25
+    COUT        shift, and go to state 26
+    IF          shift, and go to state 27
+    FOR         shift, and go to state 28
+    WHILE       shift, and go to state 29
+    RETURN      shift, and go to state 30
+    IDENTIFIER  shift, and go to state 31
+
+    apelare_functie                    go to state 32
+    corp_functie_apelare               go to state 33
+    atribuire_int                      go to state 34
+    atribuire_float                    go to state 35
+    atribuire_cerc                     go to state 36
+    atribuire_identificator            go to state 37
+    atribuire_apelare                  go to state 38
+    atribuire_variabile                go to state 39
+    intrare                            go to state 40
+    iesire                             go to state 41
+    selectie_conditionala              go to state 42
+    selectie_conditionala_prima_parte  go to state 43
+    instructiune_de_ciclare            go to state 44
+    instructiuni                       go to state 153
+    tip_de_instructiune                go to state 46
+    return_el                          go to state 47
+    return                             go to state 48
+
+
+state 133
+
+   87 instructiune_de_ciclare: FOR OPEN_PAREN atribuire_variabile SEMICOLON . conditie SEMICOLON atribuire_variabile CLOSE_PAREN OPEN_BRACE instructiuni CLOSE_BRACE
+
+    IDENTIFIER  shift, and go to state 90
+
+    conditie  go to state 154
+
+
+state 134
+
+   86 instructiune_de_ciclare: WHILE OPEN_PAREN conditie CLOSE_PAREN . OPEN_BRACE instructiuni CLOSE_BRACE
+
+    OPEN_BRACE  shift, and go to state 155
+
+
+state 135
+
+    7 corp_functie_apelare: IDENTIFIER OPEN_PAREN parametri_opt_apelare CLOSE_PAREN .
+
+    $default  reduce using rule 7 (corp_functie_apelare)
+
+
+state 136
+
+   11 lista_parametri_apelare: tip_parametri_apelare COMMA . lista_parametri_apelare
+
+    IDENTIFIER      shift, and go to state 84
+    INT_CONSTANT    shift, and go to state 85
+    FLOAT_CONSTANT  shift, and go to state 86
+
+    lista_parametri_apelare  go to state 156
+    tip_parametri_apelare    go to state 97
+
+
+state 137
+
+   26 cerc: CERC OPEN_PAREN . tip_de_date FLOAT_CONSTANT CLOSE_PAREN
+
+    INT_TYPE    shift, and go to state 9
+    FLOAT_TYPE  shift, and go to state 10
+    CERC        shift, and go to state 11
+
+    tip_de_date  go to state 157
+
+
+state 138
+
+   62 operatii_float: PLUS .
+
+    $default  reduce using rule 62 (operatii_float)
+
+
+state 139
+
+   63 operatii_float: MINUS .
+
+    $default  reduce using rule 63 (operatii_float)
+
+
+state 140
+
+   64 operatii_float: MULTIPLY .
+
+    $default  reduce using rule 64 (operatii_float)
+
+
+state 141
+
+   65 operatii_float: DIVIDE .
+
+    $default  reduce using rule 65 (operatii_float)
+
+
+state 142
+
+   61 operatii_int: MODULO .
+
+    $default  reduce using rule 61 (operatii_int)
+
+
+state 143
+
+   54 operatii_variabile: IDENTIFIER operatii_int . IDENTIFIER
+   55                   | IDENTIFIER operatii_int . INT_CONSTANT
+   56                   | IDENTIFIER operatii_int . FLOAT_CONSTANT
+
+    IDENTIFIER      shift, and go to state 158
+    INT_CONSTANT    shift, and go to state 159
+    FLOAT_CONSTANT  shift, and go to state 160
+
+
+state 144
+
+   60 operatii_int: operatii_float .
+
+    $default  reduce using rule 60 (operatii_int)
+
+
+state 145
+
+   52 operatii_numere_int: INT_CONSTANT operatii_int . INT_CONSTANT
+   57 operatii_variabile: INT_CONSTANT operatii_int . IDENTIFIER
+
+    IDENTIFIER    shift, and go to state 161
+    INT_CONSTANT  shift, and go to state 162
+
+
+state 146
+
+   58 operatii_variabile: FLOAT_CONSTANT operatii_int . IDENTIFIER
+   59                   | FLOAT_CONSTANT operatii_int . FLOAT_CONSTANT
+
+    IDENTIFIER      shift, and go to state 163
+    FLOAT_CONSTANT  shift, and go to state 164
+
+
+state 147
+
+   53 operatii_numere_float: FLOAT_CONSTANT operatii_float . FLOAT_CONSTANT
+   60 operatii_int: operatii_float .
+
+    FLOAT_CONSTANT  shift, and go to state 165
+
+    FLOAT_CONSTANT  [reduce using rule 60 (operatii_int)]
+    $default        reduce using rule 60 (operatii_int)
+
+
+state 148
+
+   21 lista_parametri: parametru COMMA lista_parametri .
+
+    $default  reduce using rule 21 (lista_parametri)
+
+
+state 149
+
+   57 operatii_variabile: INT_CONSTANT operatii_int . IDENTIFIER
+
+    IDENTIFIER  shift, and go to state 161
+
+
+state 150
+
+   77 conditie: IDENTIFIER operator_conditional IDENTIFIER .
+
+    $default  reduce using rule 77 (conditie)
+
+
+state 151
+
+   78 conditie: IDENTIFIER operator_conditional INT_CONSTANT .
+
+    $default  reduce using rule 78 (conditie)
+
+
+state 152
+
+   79 conditie: IDENTIFIER operator_conditional FLOAT_CONSTANT .
+
+    $default  reduce using rule 79 (conditie)
+
+
+state 153
+
+   76 selectie_conditionala_prima_parte: IF OPEN_PAREN conditie CLOSE_PAREN instructiuni .
+   89 instructiuni: instructiuni . tip_de_instructiune
+
+    INT_TYPE    shift, and go to state 22
+    FLOAT_TYPE  shift, and go to state 23
+    CERC        shift, and go to state 24
+    CIN         shift, and go to state 25
+    COUT        shift, and go to state 26
+    IF          shift, and go to state 27
+    FOR         shift, and go to state 28
+    WHILE       shift, and go to state 29
+    RETURN      shift, and go to state 30
+    IDENTIFIER  shift, and go to state 31
+
+    INT_TYPE    [reduce using rule 76 (selectie_conditionala_prima_parte)]
+    FLOAT_TYPE  [reduce using rule 76 (selectie_conditionala_prima_parte)]
+    CERC        [reduce using rule 76 (selectie_conditionala_prima_parte)]
+    CIN         [reduce using rule 76 (selectie_conditionala_prima_parte)]
+    COUT        [reduce using rule 76 (selectie_conditionala_prima_parte)]
+    IF          [reduce using rule 76 (selectie_conditionala_prima_parte)]
+    FOR         [reduce using rule 76 (selectie_conditionala_prima_parte)]
+    WHILE       [reduce using rule 76 (selectie_conditionala_prima_parte)]
+    RETURN      [reduce using rule 76 (selectie_conditionala_prima_parte)]
+    IDENTIFIER  [reduce using rule 76 (selectie_conditionala_prima_parte)]
+    $default    reduce using rule 76 (selectie_conditionala_prima_parte)
+
+    apelare_functie                    go to state 32
+    corp_functie_apelare               go to state 33
+    atribuire_int                      go to state 34
+    atribuire_float                    go to state 35
+    atribuire_cerc                     go to state 36
+    atribuire_identificator            go to state 37
+    atribuire_apelare                  go to state 38
+    atribuire_variabile                go to state 39
+    intrare                            go to state 40
+    iesire                             go to state 41
+    selectie_conditionala              go to state 42
+    selectie_conditionala_prima_parte  go to state 43
+    instructiune_de_ciclare            go to state 44
+    tip_de_instructiune                go to state 72
+    return_el                          go to state 47
+    return                             go to state 48
+
+
+state 154
+
+   87 instructiune_de_ciclare: FOR OPEN_PAREN atribuire_variabile SEMICOLON conditie . SEMICOLON atribuire_variabile CLOSE_PAREN OPEN_BRACE instructiuni CLOSE_BRACE
+
+    SEMICOLON  shift, and go to state 166
+
+
+state 155
+
+   86 instructiune_de_ciclare: WHILE OPEN_PAREN conditie CLOSE_PAREN OPEN_BRACE . instructiuni CLOSE_BRACE
+
+    INT_TYPE    shift, and go to state 22
+    FLOAT_TYPE  shift, and go to state 23
+    CERC        shift, and go to state 24
+    CIN         shift, and go to state 25
+    COUT        shift, and go to state 26
+    IF          shift, and go to state 27
+    FOR         shift, and go to state 28
+    WHILE       shift, and go to state 29
+    RETURN      shift, and go to state 30
+    IDENTIFIER  shift, and go to state 31
+
+    apelare_functie                    go to state 32
+    corp_functie_apelare               go to state 33
+    atribuire_int                      go to state 34
+    atribuire_float                    go to state 35
+    atribuire_cerc                     go to state 36
+    atribuire_identificator            go to state 37
+    atribuire_apelare                  go to state 38
+    atribuire_variabile                go to state 39
+    intrare                            go to state 40
+    iesire                             go to state 41
+    selectie_conditionala              go to state 42
+    selectie_conditionala_prima_parte  go to state 43
+    instructiune_de_ciclare            go to state 44
+    instructiuni                       go to state 167
+    tip_de_instructiune                go to state 46
+    return_el                          go to state 47
+    return                             go to state 48
+
+
+state 156
+
+   11 lista_parametri_apelare: tip_parametri_apelare COMMA lista_parametri_apelare .
+
+    $default  reduce using rule 11 (lista_parametri_apelare)
+
+
+state 157
+
+   26 cerc: CERC OPEN_PAREN tip_de_date . FLOAT_CONSTANT CLOSE_PAREN
+
+    FLOAT_CONSTANT  shift, and go to state 168
+
+
+state 158
+
+   54 operatii_variabile: IDENTIFIER operatii_int IDENTIFIER .
+
+    $default  reduce using rule 54 (operatii_variabile)
+
+
+state 159
+
+   55 operatii_variabile: IDENTIFIER operatii_int INT_CONSTANT .
+
+    $default  reduce using rule 55 (operatii_variabile)
+
+
+state 160
+
+   56 operatii_variabile: IDENTIFIER operatii_int FLOAT_CONSTANT .
+
+    $default  reduce using rule 56 (operatii_variabile)
+
+
+state 161
+
+   57 operatii_variabile: INT_CONSTANT operatii_int IDENTIFIER .
+
+    $default  reduce using rule 57 (operatii_variabile)
+
+
+state 162
+
+   52 operatii_numere_int: INT_CONSTANT operatii_int INT_CONSTANT .
+
+    $default  reduce using rule 52 (operatii_numere_int)
+
+
+state 163
+
+   58 operatii_variabile: FLOAT_CONSTANT operatii_int IDENTIFIER .
+
+    $default  reduce using rule 58 (operatii_variabile)
+
+
+state 164
+
+   59 operatii_variabile: FLOAT_CONSTANT operatii_int FLOAT_CONSTANT .
+
+    $default  reduce using rule 59 (operatii_variabile)
+
+
+state 165
+
+   53 operatii_numere_float: FLOAT_CONSTANT operatii_float FLOAT_CONSTANT .
+
+    $default  reduce using rule 53 (operatii_numere_float)
+
+
+state 166
+
+   87 instructiune_de_ciclare: FOR OPEN_PAREN atribuire_variabile SEMICOLON conditie SEMICOLON . atribuire_variabile CLOSE_PAREN OPEN_BRACE instructiuni CLOSE_BRACE
+
+    INT_TYPE    shift, and go to state 22
+    FLOAT_TYPE  shift, and go to state 23
+    CERC        shift, and go to state 24
+    IDENTIFIER  shift, and go to state 92
+
+    atribuire_int            go to state 34
+    atribuire_float          go to state 35
+    atribuire_cerc           go to state 36
+    atribuire_identificator  go to state 37
+    atribuire_apelare        go to state 38
+    atribuire_variabile      go to state 169
+
+
+state 167
+
+   86 instructiune_de_ciclare: WHILE OPEN_PAREN conditie CLOSE_PAREN OPEN_BRACE instructiuni . CLOSE_BRACE
+   89 instructiuni: instructiuni . tip_de_instructiune
+
+    CLOSE_BRACE  shift, and go to state 170
+    INT_TYPE     shift, and go to state 22
+    FLOAT_TYPE   shift, and go to state 23
+    CERC         shift, and go to state 24
+    CIN          shift, and go to state 25
+    COUT         shift, and go to state 26
+    IF           shift, and go to state 27
+    FOR          shift, and go to state 28
+    WHILE        shift, and go to state 29
+    RETURN       shift, and go to state 30
+    IDENTIFIER   shift, and go to state 31
+
+    apelare_functie                    go to state 32
+    corp_functie_apelare               go to state 33
+    atribuire_int                      go to state 34
+    atribuire_float                    go to state 35
+    atribuire_cerc                     go to state 36
+    atribuire_identificator            go to state 37
+    atribuire_apelare                  go to state 38
+    atribuire_variabile                go to state 39
+    intrare                            go to state 40
+    iesire                             go to state 41
+    selectie_conditionala              go to state 42
+    selectie_conditionala_prima_parte  go to state 43
+    instructiune_de_ciclare            go to state 44
+    tip_de_instructiune                go to state 72
+    return_el                          go to state 47
+    return                             go to state 48
+
+
+state 168
+
+   26 cerc: CERC OPEN_PAREN tip_de_date FLOAT_CONSTANT . CLOSE_PAREN
+
+    CLOSE_PAREN  shift, and go to state 171
+
+
+state 169
+
+   87 instructiune_de_ciclare: FOR OPEN_PAREN atribuire_variabile SEMICOLON conditie SEMICOLON atribuire_variabile . CLOSE_PAREN OPEN_BRACE instructiuni CLOSE_BRACE
+
+    CLOSE_PAREN  shift, and go to state 172
+
+
+state 170
+
+   86 instructiune_de_ciclare: WHILE OPEN_PAREN conditie CLOSE_PAREN OPEN_BRACE instructiuni CLOSE_BRACE .
+
+    $default  reduce using rule 86 (instructiune_de_ciclare)
+
+
+state 171
+
+   26 cerc: CERC OPEN_PAREN tip_de_date FLOAT_CONSTANT CLOSE_PAREN .
+
+    $default  reduce using rule 26 (cerc)
+
+
+state 172
+
+   87 instructiune_de_ciclare: FOR OPEN_PAREN atribuire_variabile SEMICOLON conditie SEMICOLON atribuire_variabile CLOSE_PAREN . OPEN_BRACE instructiuni CLOSE_BRACE
+
+    OPEN_BRACE  shift, and go to state 173
+
+
+state 173
+
+   87 instructiune_de_ciclare: FOR OPEN_PAREN atribuire_variabile SEMICOLON conditie SEMICOLON atribuire_variabile CLOSE_PAREN OPEN_BRACE . instructiuni CLOSE_BRACE
+
+    INT_TYPE    shift, and go to state 22
+    FLOAT_TYPE  shift, and go to state 23
+    CERC        shift, and go to state 24
+    CIN         shift, and go to state 25
+    COUT        shift, and go to state 26
+    IF          shift, and go to state 27
+    FOR         shift, and go to state 28
+    WHILE       shift, and go to state 29
+    RETURN      shift, and go to state 30
+    IDENTIFIER  shift, and go to state 31
+
+    apelare_functie                    go to state 32
+    corp_functie_apelare               go to state 33
+    atribuire_int                      go to state 34
+    atribuire_float                    go to state 35
+    atribuire_cerc                     go to state 36
+    atribuire_identificator            go to state 37
+    atribuire_apelare                  go to state 38
+    atribuire_variabile                go to state 39
+    intrare                            go to state 40
+    iesire                             go to state 41
+    selectie_conditionala              go to state 42
+    selectie_conditionala_prima_parte  go to state 43
+    instructiune_de_ciclare            go to state 44
+    instructiuni                       go to state 174
+    tip_de_instructiune                go to state 46
+    return_el                          go to state 47
+    return                             go to state 48
+
+
+state 174
+
+   87 instructiune_de_ciclare: FOR OPEN_PAREN atribuire_variabile SEMICOLON conditie SEMICOLON atribuire_variabile CLOSE_PAREN OPEN_BRACE instructiuni . CLOSE_BRACE
+   89 instructiuni: instructiuni . tip_de_instructiune
+
+    CLOSE_BRACE  shift, and go to state 175
+    INT_TYPE     shift, and go to state 22
+    FLOAT_TYPE   shift, and go to state 23
+    CERC         shift, and go to state 24
+    CIN          shift, and go to state 25
+    COUT         shift, and go to state 26
+    IF           shift, and go to state 27
+    FOR          shift, and go to state 28
+    WHILE        shift, and go to state 29
+    RETURN       shift, and go to state 30
+    IDENTIFIER   shift, and go to state 31
+
+    apelare_functie                    go to state 32
+    corp_functie_apelare               go to state 33
+    atribuire_int                      go to state 34
+    atribuire_float                    go to state 35
+    atribuire_cerc                     go to state 36
+    atribuire_identificator            go to state 37
+    atribuire_apelare                  go to state 38
+    atribuire_variabile                go to state 39
+    intrare                            go to state 40
+    iesire                             go to state 41
+    selectie_conditionala              go to state 42
+    selectie_conditionala_prima_parte  go to state 43
+    instructiune_de_ciclare            go to state 44
+    tip_de_instructiune                go to state 72
+    return_el                          go to state 47
+    return                             go to state 48
+
+
+state 175
+
+   87 instructiune_de_ciclare: FOR OPEN_PAREN atribuire_variabile SEMICOLON conditie SEMICOLON atribuire_variabile CLOSE_PAREN OPEN_BRACE instructiuni CLOSE_BRACE .
+
+    $default  reduce using rule 87 (instructiune_de_ciclare)

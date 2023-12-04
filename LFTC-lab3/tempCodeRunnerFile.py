@@ -1,0 +1,1 @@
+reguli_gramatica.txt

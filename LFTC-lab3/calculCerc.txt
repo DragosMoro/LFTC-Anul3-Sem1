@@ -17,6 +17,6 @@ void calculCerc() {
 
 int main()
 {
-    calculCerc();
+    calcul();
     return 0;
 }

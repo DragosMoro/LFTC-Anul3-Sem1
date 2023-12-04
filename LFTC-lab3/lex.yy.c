@@ -289,48 +289,48 @@ static void yy_fatal_error YY_PROTO(( yyconst char msg[] ));
 	*yy_cp = '\0'; \
 	yy_c_buf_p = yy_cp;
 
-#define YY_NUM_RULES 45
-#define YY_END_OF_BUFFER 46
-static yyconst short int yy_acclist[186] =
+#define YY_NUM_RULES 46
+#define YY_END_OF_BUFFER 47
+static yyconst short int yy_acclist[188] =
     {   0,
-       46,   44,   45,   45,   39,   44,   45,   44,   45,   21,
-       44,   45,   44,   45,    7,   44,   45,    8,   44,   45,
-       19,   44,   45,   17,   44,   45,   11,   44,   45,   18,
-       44,   45,   20,   44,   45,   44,   45,   43,   44,   45,
-        6,   44,   45,   32,   44,   45,   15,   44,   45,   33,
-       44,   45,   42,   44,   45,   42,   44,   45,   42,   44,
-       45,   42,   44,   45,   42,   44,   45,   42,   44,   45,
-       42,   44,   45,   42,   44,   45,   42,   44,   45,   42,
-       44,   45,   42,   44,   45,   42,   44,   45,    9,   44,
-       45,   44,   45,   10,   44,   45,   36,   38,   43,   43,
+       47,   45,   46,   46,   39,   45,   46,   45,   46,   21,
+       45,   46,   45,   46,    7,   45,   46,    8,   45,   46,
+       19,   45,   46,   17,   45,   46,   11,   45,   46,   18,
+       45,   46,   45,   46,   20,   45,   46,   42,   43,   45,
+       46,   42,   43,   45,   46,    6,   45,   46,   32,   45,
+       46,   15,   45,   46,   33,   45,   46,   44,   45,   46,
+       44,   45,   46,   44,   45,   46,   44,   45,   46,   44,
+       45,   46,   44,   45,   46,   44,   45,   46,   44,   45,
+       46,   44,   45,   46,   44,   45,   46,   44,   45,   46,
+       44,   45,   46,    9,   45,   46,   45,   46,   10,   45,
 
-       24,   34,   16,   35,   25,   42,   42,   42,   42,   42,
-       42,   42,   42,   42,   26,   42,   42,   42,   42,   42,
-       42,   42,   42,   37,   43,   43,   42,   42,   22,   42,
-       42,   42,   42,   42,   28,   42,   12,   42,   42,   42,
-        5,   42,   42,   42,   42,   43,   43,   31,   42,   14,
-       42,   23,   42,   27,   42,   40,   42,   42,   42,   42,
-       42,   41,   42,   42,   43,   43,   43,   13,   42,   42,
-       42,    3,   42,   29,   42,   43,   42,   30,   42,   42,
-        1,   42,    4,   42,    2
+       46,   36,   38,   43,   43,   42,   43,   24,   34,   16,
+       35,   25,   44,   44,   44,   44,   44,   44,   44,   44,
+       44,   26,   44,   44,   44,   44,   44,   44,   44,   44,
+       37,   43,   42,   42,   44,   44,   22,   44,   44,   44,
+       44,   44,   28,   44,   12,   44,   44,   44,    5,   44,
+       44,   44,   44,   31,   44,   14,   44,   23,   44,   27,
+       44,   40,   44,   44,   44,   44,   44,   41,   44,   44,
+       13,   44,   44,   44,    3,   44,   29,   44,   44,   30,
+       44,   44,    1,   44,    4,   44,    2
     } ;
 
-static yyconst short int yy_accept[129] =
+static yyconst short int yy_accept[126] =
     {   0,
         1,    1,    1,    2,    4,    5,    8,   10,   13,   15,
-       18,   21,   24,   27,   30,   33,   36,   38,   41,   44,
-       47,   50,   53,   56,   59,   62,   65,   68,   71,   74,
-       77,   80,   83,   86,   89,   92,   94,   97,   98,   98,
-       99,   99,   99,  100,  101,  102,  103,  103,  104,  105,
-      106,  107,  108,  109,  110,  111,  112,  113,  114,  115,
-      117,  118,  119,  120,  121,  122,  123,  124,  125,  125,
-      126,  127,  127,  128,  129,  131,  132,  133,  134,  135,
-      137,  139,  140,  141,  143,  144,  145,  146,  146,  147,
-      148,  148,  150,  152,  154,  156,  158,  159,  160,  161,
+       18,   21,   24,   27,   30,   33,   35,   38,   42,   46,
+       49,   52,   55,   58,   61,   64,   67,   70,   73,   76,
+       79,   82,   85,   88,   91,   94,   97,   99,  102,  103,
+      103,  104,  105,  106,  108,  108,  108,  109,  110,  110,
+      111,  112,  113,  114,  115,  116,  117,  118,  119,  120,
+      121,  122,  124,  125,  126,  127,  128,  129,  130,  131,
+      132,  132,  133,  134,  135,  135,  136,  137,  139,  140,
+      141,  142,  143,  145,  147,  148,  149,  151,  152,  153,
+      154,  154,  154,  156,  158,  160,  162,  164,  165,  166,
 
-      162,  164,  165,  165,  166,  167,  168,  168,  170,  171,
-      172,  174,  176,  176,  177,  177,  178,  180,  180,  180,
-      181,  182,  182,  183,  183,  185,  186,  186
+      167,  168,  170,  171,  171,  171,  173,  174,  175,  177,
+      179,  179,  179,  180,  182,  182,  182,  183,  184,  184,
+      185,  185,  187,  188,  188
     } ;
 
 static yyconst int yy_ec[256] =
@@ -339,16 +339,16 @@ static yyconst int yy_ec[256] =
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    3,    1,    4,    1,    5,    6,    1,    7,
-        8,    9,   10,   11,   12,   13,   14,   15,   16,   16,
-       16,   16,   16,   16,   16,   16,   16,    1,   17,   18,
-       19,   20,    1,    1,   21,   21,   22,   21,   21,   21,
-       21,   21,   21,   21,   21,   21,   21,   21,   21,   21,
-       21,   21,   21,   21,   21,   21,   21,   21,   21,   21,
-        1,    1,    1,    1,    1,    1,   23,   21,   24,   25,
+        8,    9,   10,   11,   12,   13,   14,   15,   16,   17,
+       17,   17,   17,   17,   17,   17,   17,    1,   18,   19,
+       20,   21,    1,    1,   22,   22,   23,   22,   22,   22,
+       24,   24,   24,   24,   24,   24,   24,   24,   24,   24,
+       24,   24,   24,   24,   24,   24,   24,   24,   24,   24,
+        1,    1,    1,    1,    1,    1,   25,   26,   27,   28,
 
-       26,   27,   28,   29,   30,   21,   21,   31,   32,   33,
-       34,   35,   21,   36,   37,   38,   39,   40,   41,   21,
-       21,   21,   42,   43,   44,    1,    1,    1,    1,    1,
+       29,   30,   31,   32,   33,   24,   24,   34,   35,   36,
+       37,   38,   24,   39,   40,   41,   42,   43,   44,   45,
+       24,   24,   46,   47,   48,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -365,103 +365,103 @@ static yyconst int yy_ec[256] =
         1,    1,    1,    1,    1
     } ;
 
-static yyconst int yy_meta[45] =
+static yyconst int yy_meta[49] =
     {   0,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    2,    2,    1,    1,    1,    1,
-        2,    2,    2,    2,    2,    2,    2,    2,    2,    2,
-        2,    2,    2,    2,    2,    2,    2,    2,    2,    2,
-        2,    1,    1,    1
+        1,    1,    1,    1,    2,    2,    2,    1,    1,    1,
+        1,    2,    2,    3,    2,    2,    2,    2,    2,    2,
+        3,    3,    3,    3,    3,    3,    3,    3,    3,    3,
+        3,    3,    3,    3,    3,    1,    1,    1
     } ;
 
-static yyconst short int yy_base[129] =
+static yyconst short int yy_base[127] =
     {   0,
-        0,    0,  156,  157,  157,  136,  124,  157,  147,  157,
-      157,  157,  157,  157,  157,  157,   32,   31,  157,   31,
-      133,   32,    0,  125,   28,   22,   25,   30,  127,  123,
-      110,  110,  112,  116,  157,  101,  157,  157,  110,  157,
-       49,   53,   55,   57,  157,  157,  108,  157,  157,  157,
-        0,  105,  104,  106,   99,  100,  111,  101,   98,    0,
-       95,  100,   93,  105,   99,   98,   97,  157,  102,   59,
-       63,   88,  100,   99,    0,   84,   95,   89,   96,    0,
-        0,   92,   78,    0,   83,   90,   83,   82,   67,   69,
-       74,    0,    0,    0,    0,    0,   73,   73,   73,   80,
+        0,    0,  158,  159,  159,  137,  123,  159,  149,  159,
+      159,  159,  159,  159,  159,   34,  159,   39,   44,  159,
+       43,  134,   46,    0,  124,   35,   35,   36,   44,  127,
+      122,  109,  109,  111,  115,  159,   99,  159,  159,  109,
+      159,   62,   66,   72,   75,    0,  159,  159,  107,  159,
+      159,  159,    0,  104,  103,  105,   98,   99,  110,  100,
+       97,    0,   94,   99,   92,  104,   98,   97,   96,  159,
+      101,   77,   80,    0,   87,   99,   98,    0,   83,   94,
+       88,   96,    0,    0,   91,   77,    0,   82,   89,   82,
+       81,   73,    0,    0,    0,    0,    0,   72,   72,   72,
 
-        0,   81,   67,   73,   77,   79,   69,    0,   69,   70,
-        0,    0,   77,   83,   75,   77,    0,   71,   68,   63,
-      157,   49,   51,   47,    0,  157,  157,   58
+       79,    0,   80,   66,   68,    0,   68,   69,    0,    0,
+       76,   74,   77,    0,   72,   75,   72,  159,   51,   46,
+       37,    0,  159,  159,   95,   51
     } ;
 
-static yyconst short int yy_def[129] =
+static yyconst short int yy_def[127] =
     {   0,
-      127,    1,  127,  127,  127,  127,  127,  127,  127,  127,
-      127,  127,  127,  127,  127,  127,  127,  127,  127,  127,
-      127,  127,  128,  128,  128,  128,  128,  128,  128,  128,
-      128,  128,  128,  128,  127,  127,  127,  127,  127,  127,
-      127,  127,  127,  127,  127,  127,  127,  127,  127,  127,
-      128,  128,  128,  128,  128,  128,  128,  128,  128,  128,
-      128,  128,  128,  128,  128,  128,  128,  127,  127,  127,
-      127,  127,  128,  128,  128,  128,  128,  128,  128,  128,
-      128,  128,  128,  128,  128,  128,  128,  127,  127,  127,
-      127,  128,  128,  128,  128,  128,  128,  128,  128,  128,
+      124,    1,  124,  124,  124,  124,  124,  124,  124,  124,
+      124,  124,  124,  124,  124,  124,  124,  124,  124,  124,
+      124,  124,  124,  125,  125,  125,  125,  125,  125,  125,
+      125,  125,  125,  125,  125,  124,  124,  124,  124,  124,
+      124,  124,  124,  124,  124,  126,  124,  124,  124,  124,
+      124,  124,  125,  125,  125,  125,  125,  125,  125,  125,
+      125,  125,  125,  125,  125,  125,  125,  125,  125,  124,
+      124,  124,  124,  126,  124,  125,  125,  125,  125,  125,
+      125,  125,  125,  125,  125,  125,  125,  125,  125,  125,
+      124,  124,  125,  125,  125,  125,  125,  125,  125,  125,
 
-      128,  128,  127,  127,  127,  127,  127,  128,  128,  128,
-      128,  128,  127,  127,  127,  128,  128,  127,  127,  128,
-      127,  127,  128,  127,  128,  127,    0,  127
+      125,  125,  125,  124,  124,  125,  125,  125,  125,  125,
+      124,  124,  125,  125,  124,  124,  125,  124,  124,  125,
+      124,  125,  124,    0,  124,  124
     } ;
 
-static yyconst short int yy_nxt[202] =
+static yyconst short int yy_nxt[208] =
     {   0,
         4,    5,    6,    7,    8,    9,   10,   11,   12,   13,
-       14,   15,    4,   16,   17,   18,   19,   20,   21,   22,
-       23,   24,   23,   25,   23,   26,   27,   23,   23,   28,
-       23,   23,   29,   23,   23,   30,   31,   23,   32,   33,
-       34,   35,   36,   37,   41,   43,   44,   42,   45,   46,
-       49,   50,   56,   53,   57,   58,   60,   54,   59,   51,
-       47,   55,   61,   70,   70,   41,  126,   41,   42,   43,
-       71,   43,   44,   89,   90,   41,  125,   43,   71,   41,
-      124,   89,  104,  105,  106,   41,  123,  105,  114,   41,
-      122,  105,  114,  105,  106,   41,  121,  105,  114,  120,
+       14,   15,   16,   17,   18,   19,   19,   20,   21,   22,
+       23,   24,   25,   24,   24,   24,   26,   24,   27,   28,
+       24,   24,   29,   24,   24,   30,   24,   24,   31,   32,
+       24,   33,   34,   35,   24,   36,   37,   38,   42,   42,
+       42,   43,   74,   44,   44,   44,   43,  123,   44,   44,
+       44,   47,   48,   55,   45,   51,   52,   56,   58,   60,
+       59,   57,   61,   62,  122,   49,   42,   42,   42,   63,
+       72,   72,   72,   46,   43,  121,   44,   44,   44,   73,
+       73,   72,   72,   72,   73,   73,   53,   53,  120,  119,
 
-      119,  118,  117,  116,  115,  113,  112,  111,  110,  109,
-      108,  107,  103,  102,  101,  100,   99,   98,   97,   96,
-       95,   94,   93,   92,   91,   88,   87,   86,   85,   84,
-       83,   82,   81,   80,   79,   78,   77,   76,   75,   74,
-       73,   72,   69,   68,   67,   66,   65,   64,   63,   62,
-       52,   48,   40,   39,   38,  127,    3,  127,  127,  127,
-      127,  127,  127,  127,  127,  127,  127,  127,  127,  127,
-      127,  127,  127,  127,  127,  127,  127,  127,  127,  127,
-      127,  127,  127,  127,  127,  127,  127,  127,  127,  127,
-      127,  127,  127,  127,  127,  127,  127,  127,  127,  127,
+      118,  117,  116,  115,  114,  113,  112,  111,  110,  109,
+      108,  107,  106,  105,  104,  103,  102,  101,  100,   99,
+       98,   97,   96,   95,   94,   93,   92,   91,   90,   89,
+       88,   87,   86,   85,   84,   83,   82,   81,   80,   79,
+       78,   77,   76,   75,   71,   70,   69,   68,   67,   66,
+       65,   64,   54,   50,   41,   40,   39,  124,    3,  124,
+      124,  124,  124,  124,  124,  124,  124,  124,  124,  124,
+      124,  124,  124,  124,  124,  124,  124,  124,  124,  124,
+      124,  124,  124,  124,  124,  124,  124,  124,  124,  124,
+      124,  124,  124,  124,  124,  124,  124,  124,  124,  124,
 
-      127
+      124,  124,  124,  124,  124,  124,  124
     } ;
 
-static yyconst short int yy_chk[202] =
+static yyconst short int yy_chk[208] =
     {   0,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,   17,   18,   18,   17,   20,   20,
-       22,   22,   26,   25,   26,   27,   28,   25,   27,  128,
-       20,   25,   28,   41,   41,   42,  124,   43,   42,   43,
-       43,   44,   44,   70,   70,   71,  123,   71,   71,   89,
-      122,   89,   89,   90,   90,  104,  120,  104,  104,  105,
-      119,  105,  105,  106,  106,  114,  118,  114,  114,  116,
+        1,    1,    1,    1,    1,    1,    1,    1,   16,   16,
+       16,   18,  126,   18,   18,   18,   19,  121,   19,   19,
+       19,   21,   21,   26,   18,   23,   23,   26,   27,   28,
+       27,   26,   28,   29,  120,   21,   42,   42,   42,   29,
+       43,   43,   43,   18,   44,  119,   44,   44,   44,   45,
+       45,   72,   72,   72,   73,   73,  125,  125,  117,  116,
 
-      115,  113,  110,  109,  107,  103,  102,  100,   99,   98,
-       97,   91,   88,   87,   86,   85,   83,   82,   79,   78,
-       77,   76,   74,   73,   72,   69,   67,   66,   65,   64,
-       63,   62,   61,   59,   58,   57,   56,   55,   54,   53,
-       52,   47,   39,   36,   34,   33,   32,   31,   30,   29,
-       24,   21,    9,    7,    6,    3,  127,  127,  127,  127,
-      127,  127,  127,  127,  127,  127,  127,  127,  127,  127,
-      127,  127,  127,  127,  127,  127,  127,  127,  127,  127,
-      127,  127,  127,  127,  127,  127,  127,  127,  127,  127,
-      127,  127,  127,  127,  127,  127,  127,  127,  127,  127,
+      115,  113,  112,  111,  108,  107,  105,  104,  103,  101,
+      100,   99,   98,   92,   91,   90,   89,   88,   86,   85,
+       82,   81,   80,   79,   77,   76,   75,   71,   69,   68,
+       67,   66,   65,   64,   63,   61,   60,   59,   58,   57,
+       56,   55,   54,   49,   40,   37,   35,   34,   33,   32,
+       31,   30,   25,   22,    9,    7,    6,    3,  124,  124,
+      124,  124,  124,  124,  124,  124,  124,  124,  124,  124,
+      124,  124,  124,  124,  124,  124,  124,  124,  124,  124,
+      124,  124,  124,  124,  124,  124,  124,  124,  124,  124,
+      124,  124,  124,  124,  124,  124,  124,  124,  124,  124,
 
-      127
+      124,  124,  124,  124,  124,  124,  124
     } ;
 
 static yy_state_type yy_state_buf[YY_BUF_SIZE + 2], *yy_state_ptr;
@@ -478,153 +478,12 @@ goto find_rule; \
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "structura.l"
+#line 1 ".\\minilimbaj.l"
 #define INITIAL 0
-#line 2 "structura.l"
+#line 2 ".\\minilimbaj.l"
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
-
-struct Node {
-    char* key;
-    int type; 
-    int id; 
-    struct Node* left;
-    struct Node* right;
-};
-
-struct Element {
-    char* key;
-    int id; 
-    int symbol_id;
-    struct Element* next;
-};
-
-int nextId = 1;
-int nextIndex = 1;
-
-struct Node* symbolTable = NULL;
-struct Element* elementTable = NULL;
-
-struct Node* insertNode(struct Node* root, char* key, int type);
-struct Element* insertElement(struct Element* head, char* key, int id);
-void assignIndexes(struct Node* root);
-void updateSymbolIds(struct Element* elements, struct Node* symbolTable);
-struct Node* findSymbolNode(char* key, struct Node* symbolTable);
-void printTree(struct Node* root);
-void printElements(struct Element* elements);
-void freeTree(struct Node* root);
-void freeElements(struct Element* elements);
-
-struct Node* insertNode(struct Node* root, char* key, int type) {
-    if (root == NULL) {
-        struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
-        newNode->key = strdup(key);
-        newNode->type = type;
-        newNode->id = nextId++;
-        newNode->left = newNode->right = NULL;
-        return newNode;
-    }
-
-    int compareResult = strcmp(key, root->key);
-
-    if (compareResult < 0) {
-        root->left = insertNode(root->left, key, type);
-    } else if (compareResult > 0) {
-        root->right = insertNode(root->right, key, type);
-    }
-
-    return root;
-}
-
-struct Element* insertElement(struct Element* head, char* key, int id) {
-    struct Element* newElement = (struct Element*)malloc(sizeof(struct Element));
-    newElement->key = strdup(key);
-    newElement->id = id;
-    newElement->symbol_id = -1;
-    newElement->next = head;
-    return newElement;
-}
-
-void assignIndexes(struct Node* root) {
-    if (root != NULL) {
-        assignIndexes(root->left);
-        root->id = nextIndex++;
-        assignIndexes(root->right);
-    }
-}
-
-
-// Funcție pentru actualizarea symbol_id-urilor în funcție de tabela de simboluri originală
-void updateSymbolIds(struct Element* elements, struct Node* symbolTable) {
-    struct Element* current = elements;
-    while (current != NULL) {
-        struct Node* symbolNode = findSymbolNode(current->key, symbolTable);
-        if (symbolNode != NULL) {
-            current->symbol_id = symbolNode->id;
-        }
-        current = current->next;
-    }
-}
-
-struct Node* findSymbolNode(char* key, struct Node* symbolTable) {
-
-    struct Node* current = symbolTable;
-    while (current != NULL) {
-        if (strcmp(key, current->key) == 0) {
-            return current;
-        }
-        current = (strcmp(key, current->key) < 0) ? current->left : current->right;
-    }
-    return NULL;
-}
-
-
-
-void printTree(struct Node* root) {
-    if (root != NULL) {
-        printTree(root->left);
-        printf("Key: %s, ID: %d\n", root->key, root->id);
-        printTree(root->right);
-    }
-}
-
-void printElements(struct Element* elements) {
-    struct Element* current = elements;
-    while (current != NULL) {
-        printf("Key: %s, ID: %d, Symbol_ID: %d\n", current->key, current->id, current->symbol_id);
-        current = current->next;
-    }
-}
-
-void printElementsReverse(struct Element* elements) {
-    if (elements != NULL) {
-        printElementsReverse(elements->next);
-        printf("Key: %s, ID: %d, Symbol_ID: %d\n", elements->key, elements->id, elements->symbol_id);
-    }
-}
-
-
-void freeTree(struct Node* root) {
-    if (root != NULL) {
-        freeTree(root->left);
-        freeTree(root->right);
-        free(root->key);
-        free(root);
-    }
-}
-void freeElements(struct Element* elements) {
-    struct Element* current = elements;
-    while (current != NULL) {
-        struct Element* next = current->next;
-        free(current->key);
-        free(current);
-        current = next;
-    }
-}
-
-
-#line 628 "lex.yy.c"
+#line 487 "lex.yy.c"
 
 /* Macros after this point can all be overridden by user definitions in
  * section 1.
@@ -775,11 +634,10 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 153 "structura.l"
+#line 14 ".\\minilimbaj.l"
 
 
-
-#line 783 "lex.yy.c"
+#line 641 "lex.yy.c"
 
 	if ( yy_init )
 		{
@@ -827,14 +685,14 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 128 )
+				if ( yy_current_state >= 125 )
 					yy_c = yy_meta[(unsigned int) yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
 			*yy_state_ptr++ = yy_current_state;
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 157 );
+		while ( yy_base[yy_current_state] != 159 );
 
 yy_find_action:
 		yy_current_state = *--yy_state_ptr;
@@ -872,245 +730,330 @@ do_action:	/* This label is used only to access EOF actions. */
 	{ /* beginning of action switch */
 case 1:
 YY_RULE_SETUP
-#line 156 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 2); }
+#line 16 ".\\minilimbaj.l"
+{
+    return INCLUDE;
+}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 157 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 3); }
+#line 20 ".\\minilimbaj.l"
+{
+    return IOSTREAM;
+}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 158 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 4); }
+#line 24 ".\\minilimbaj.l"
+{
+    return USING;
+}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 159 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 5); }
+#line 28 ".\\minilimbaj.l"
+{
+    return NAMESPACE;
+}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 160 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 6); }
+#line 32 ".\\minilimbaj.l"
+{
+    return STD;
+}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 161 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 7); }
+#line 36 ".\\minilimbaj.l"
+{
+    return SEMICOLON;
+}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 162 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 8); }
+#line 40 ".\\minilimbaj.l"
+{
+    return OPEN_PAREN;
+}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 163 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 9); }
+#line 44 ".\\minilimbaj.l"
+{
+    return CLOSE_PAREN;
+}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 164 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 10); }
+#line 48 ".\\minilimbaj.l"
+{
+    return OPEN_BRACE;
+}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 165 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 11); }
+#line 52 ".\\minilimbaj.l"
+{
+    return CLOSE_BRACE;
+}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 166 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 12); }
+#line 56 ".\\minilimbaj.l"
+{
+    return COMMA;
+}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 167 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 13); }
+#line 60 ".\\minilimbaj.l"
+{
+    return INT_TYPE;
+}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 168 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 14); }
+#line 64 ".\\minilimbaj.l"
+{
+    return FLOAT_TYPE;
+}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 169 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 15); }
+#line 68 ".\\minilimbaj.l"
+{
+    return CERC;
+}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 170 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 16); }
+#line 72 ".\\minilimbaj.l"
+{
+    return ASSIGN;
+}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 171 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 17); }
+#line 76 ".\\minilimbaj.l"
+{
+    return EQUAL;
+}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 172 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 18); }
+#line 80 ".\\minilimbaj.l"
+{
+    return PLUS;
+}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 173 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 19); }
+#line 84 ".\\minilimbaj.l"
+{
+    return MINUS;
+}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 174 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 20); }
+#line 88 ".\\minilimbaj.l"
+{
+    return MULTIPLY;
+}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 175 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 21); }
+#line 92 ".\\minilimbaj.l"
+{
+    return DIVIDE;
+}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 176 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 22); }
+#line 96 ".\\minilimbaj.l"
+{
+    return MODULO;
+}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 177 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 23); }
+#line 100 ".\\minilimbaj.l"
+{
+    return CIN;
+}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 178 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 24); }
+#line 104 ".\\minilimbaj.l"
+{
+    return COUT;
+}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 179 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 25); }
+#line 108 ".\\minilimbaj.l"
+{
+    return OUTPUT_OP;
+}
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 180 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 26); }
+#line 112 ".\\minilimbaj.l"
+{
+    return INPUT_OP;
+}
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 181 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 27); }
+#line 116 ".\\minilimbaj.l"
+{
+    return IF;
+}
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 182 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 28); }
+#line 120 ".\\minilimbaj.l"
+{
+    return ELSE;
+}
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 183 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 29); }
+#line 124 ".\\minilimbaj.l"
+{
+    return FOR;
+}
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 184 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 30); }
+#line 128 ".\\minilimbaj.l"
+{
+    return WHILE;
+}
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 185 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 31); }
+#line 132 ".\\minilimbaj.l"
+{
+    return RETURN;
+}
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 186 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 32); }
+#line 136 ".\\minilimbaj.l"
+{
+    return CUSTOM_TYPE;
+}
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 187 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 33); }
+#line 140 ".\\minilimbaj.l"
+{
+    return LESS_THAN;
+}
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 188 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 34); }
+#line 144 ".\\minilimbaj.l"
+{
+    return GREATER_THAN;
+}
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 189 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 35); }
+#line 148 ".\\minilimbaj.l"
+{
+    return LESS_THAN_EQUAL;
+}
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 190 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 36); }
+#line 152 ".\\minilimbaj.l"
+{
+    return GREATER_THAN_EQUAL;
+}
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 191 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 37); }
+#line 156 ".\\minilimbaj.l"
+{
+    return NOT_EQUAL;
+}
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 192 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 38); }
+#line 160 ".\\minilimbaj.l"
+{
+    return LOGICAL_OR;
+}
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 193 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 39); }
+#line 164 ".\\minilimbaj.l"
+{
+    return LOGICAL_AND;
+}
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 194 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 40); }
+#line 168 ".\\minilimbaj.l"
+{
+    return LOGICAL_NOT;
+}
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 195 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 41); }
+#line 172 ".\\minilimbaj.l"
+{
+    return ENDL;
+}
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 196 "structura.l"
-{ elementTable = insertElement(elementTable, yytext, 42); }
+#line 176 ".\\minilimbaj.l"
+{
+    return VOID;
+}
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 199 "structura.l"
+#line 180 ".\\minilimbaj.l"
 {
-    // Verificare lungime cuvant
-    if (strlen(yytext) > 8) {
-        printf("Eroare lexicala la linia %d: ID %s depaseste lungimea maxima\n", yylineno, yytext);
-         yyterminate();
-    } else {
-        // Inserare ID in arbore
-        symbolTable = insertNode(symbolTable, yytext, 0);
-        elementTable = insertElement(elementTable, yytext, 0);
-    }
+    return INT_CONSTANT;
 }
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 211 "structura.l"
+#line 184 ".\\minilimbaj.l"
 {
-    // Inserare CONST in arbore
-    symbolTable = insertNode(symbolTable, yytext, 1);
-    symbolTable = insertNode(symbolTable,yytext , 1);
+    return FLOAT_CONSTANT;
 }
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 217 "structura.l"
+#line 188 ".\\minilimbaj.l"
 {
+    if (strlen(yytext) > 8) {
+            printf("Lexical error at line %d: ID %s exceeds maximum length\n", yylineno, yytext);
+            yyterminate();
+        } else {
+            return IDENTIFIER;
+        }
 }
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 221 "structura.l"
+#line 197 ".\\minilimbaj.l"
+{
+    // Ignoră alte caractere
+}
+	YY_BREAK
+case 46:
+YY_RULE_SETUP
+#line 201 ".\\minilimbaj.l"
 ECHO;
 	YY_BREAK
-#line 1114 "lex.yy.c"
+#line 1057 "lex.yy.c"
 			case YY_STATE_EOF(INITIAL):
 				yyterminate();
 
@@ -1399,7 +1342,7 @@ static yy_state_type yy_get_previous_state()
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 128 )
+			if ( yy_current_state >= 125 )
 				yy_c = yy_meta[(unsigned int) yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
@@ -1429,11 +1372,11 @@ yy_state_type yy_current_state;
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 128 )
+		if ( yy_current_state >= 125 )
 			yy_c = yy_meta[(unsigned int) yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
-	yy_is_jam = (yy_current_state == 127);
+	yy_is_jam = (yy_current_state == 124);
 	if ( ! yy_is_jam )
 		*yy_state_ptr++ = yy_current_state;
 
@@ -1994,29 +1937,5 @@ int main()
 	return 0;
 	}
 #endif
-#line 221 "structura.l"
+#line 201 ".\\minilimbaj.l"
 
-
-int main( argc, argv ) 
-int argc; 
-char **argv; 
-{ 
-    ++argv, --argc; 
-    if ( argc > 0 ) 
-    	yyin = fopen( argv[0], "r" ); 
-    else 
-     	yyin = stdin; 
-    yylex(); 
-    printf("\n\n");
-    assignIndexes(symbolTable);
-    printf("Symbol Table:\n");
-    printTree(symbolTable);
-    printf("\n\n");
-    printf("Element Table:\n");
-    updateSymbolIds(elementTable, symbolTable);
-    printElementsReverse(elementTable);
-
-    freeTree(symbolTable);
-    freeElements(elementTable);
-	return 0;
-} 

@@ -4,7 +4,7 @@ using namespace std;
 int gcd(int a, int b) {
     while (b != 0) 
     {
-        int temp = b;
+        int temp = 0b01011;
         b = a % b;
         a = temp;
     }
