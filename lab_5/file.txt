@@ -1,6 +1,0 @@
-S' -> S
-S -> A
-S -> x b
-A -> a A b
-A -> B
-B -> x
