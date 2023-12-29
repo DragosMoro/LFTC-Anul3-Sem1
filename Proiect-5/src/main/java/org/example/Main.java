@@ -1,6 +1,5 @@
 package org.example;
 
-
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
@@ -11,30 +10,26 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            Grammar grammar = Grammar.readGrammarFromFile("src/main/resources/gramatica.txt");
+            Grammar grammar = GrammarReader.readGrammarFromFile("src/main/resources/gramatica.txt");
+            FirstSetCalculator firstSetCalculator = new FirstSetCalculator(grammar);
+            LR1AutomatonBuilder lr1AutomatonBuilder = new LR1AutomatonBuilder(grammar, firstSetCalculator);
+            TableGenerator tableGenerator = new TableGenerator(grammar, firstSetCalculator, lr1AutomatonBuilder);
 
-            // Build LR1 Automaton
-            Map<Set<LR1Item>, Map<Symbol, Set<LR1Item>>> lr1Automaton = grammar.buildLR1Automaton();
 
-            // Print LR1 Automaton
-            System.out.println("LR(1) Automaton:");
-            grammar.printLR1Automaton(lr1Automaton);
+            Printer printer = new Printer(grammar, tableGenerator, lr1AutomatonBuilder, firstSetCalculator);
+            Parser parser = new Parser(grammar, tableGenerator, lr1AutomatonBuilder);
 
-            // Print Action and Goto Tables
-            System.out.println("Action and Goto Tables:");
-            grammar.printActionGotoTables(lr1Automaton);
 
-            //public void parse(List<Symbol> input, Map<Set<LR1Item>, Map<Symbol, Set<LR1Item>>> lr1Automaton) {
+            firstSetCalculator.calculateFirstSets();
 
-//            String inputString = "ccd$";
-//
-//
-//            grammar.parse(inputString, lr1Automaton);
+            Map<Set<LR1Item>, Map<Symbol, Set<LR1Item>>> lr1Automaton = lr1AutomatonBuilder.buildLR1Automaton();
 
-            //aaab
-            List<Symbol> inputSymbols = Arrays.asList(new Symbol("a"), new Symbol("b"));
-            grammar.parseInput(inputSymbols);
+            printer.printLR1Automaton(lr1Automaton);
+            printer.printActionGotoTables(lr1Automaton);
 
+            List<Symbol> inputSymbols = Arrays.asList(new Symbol("c"), new Symbol("d"), new Symbol("d"));
+
+            parser.parseInput(inputSymbols);
 
         } catch (IOException e) {
             e.printStackTrace();
