@@ -1,0 +1,9 @@
+neterminale: Un set Python pentru a stoca simbolurile non-terminale din gramatică.
+
+terminale: Un set Python pentru a stoca simbolurile terminale din gramatică.
+
+simbol_start: O variabilă care stochează simbolul de start al gramaticii.
+
+productii: O listă Python pentru a stoca regulile de producție ale gramaticii.
+
+filename: O variabilă care stochează numele fișierului din care se citesc datele gramaticii.
