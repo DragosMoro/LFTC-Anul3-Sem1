@@ -6,6 +6,7 @@ import java.util.Objects;
 public class Symbol {
 
     public static final Symbol EOF = new Symbol("$");
+    public static final Symbol EPSILON = new Symbol("ε");
     private String value;
 
     public Symbol(String value) {

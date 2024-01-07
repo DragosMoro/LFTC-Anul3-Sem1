@@ -24,8 +24,8 @@ public class GrammarReader {
                 String[] parts = line.split("\\s*->\\s*");
                 if (parts.length == 2) {
                     Symbol leftHandSide = new Symbol(parts[0].trim());
-                    List<Symbol> rightHandSide = Arrays.asList(parts[1].trim().split("\\s+")).stream()
-                            .map(Symbol::new)
+                    List<Symbol> rightHandSide = Arrays.stream(parts[1].trim().split("\\s+"))
+                            .map(s -> s.equals("ε") ? Symbol.EPSILON : new Symbol(s))
                             .collect(Collectors.toList());
 
                     productionRules.add(new ProductionRule(leftHandSide, rightHandSide));

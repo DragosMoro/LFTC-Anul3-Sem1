@@ -62,7 +62,7 @@ public class FirstSetCalculator {
 
     public boolean isNonTerminal(Symbol symbol) {
         String value = symbol.getValue();
-        if (value.length() == 1 && Character.isUpperCase(value.charAt(0)) || value.equals("S'")) {
+        if ((value.length() == 1 && Character.isUpperCase(value.charAt(0))) || value.equals("S'") || (value.length() == 2 && Character.isUpperCase(value.charAt(1)) && Character.isUpperCase(value.charAt(0)))) {
             return true;
         }
         return false;

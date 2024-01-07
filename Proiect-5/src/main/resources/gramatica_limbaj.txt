@@ -1,0 +1,471 @@
+S' -> A
+A -> 2 3 4 5 6 7 B
+B -> D
+B -> D B
+C -> J K
+D -> C 10 AL 11
+E -> F
+F -> 0 8 G 9
+G -> H
+G -> ε
+H -> I
+H -> I 12 H
+I -> 0
+I -> 1
+J -> O
+J -> 42
+K -> 0 8 L 9
+L -> M
+L -> ε
+M -> N
+M -> N 12 M
+N -> O 0
+O -> 13
+O -> 14
+O -> 15
+P -> 15 8 O 1 9
+Q -> 13 U
+Q -> 13 0 16 1
+Q -> 13 0 16 0
+Q -> 13 0 16 W
+Q -> 13 0 16 Y
+R -> 14 U
+R -> 14 0 16 1
+R -> 14 0 16 0
+R -> 14 0 16 X
+R -> 14 0 16 Y
+S -> 15 U
+S -> 15 0 16 P
+S -> 0 16 P
+T -> U
+T -> 0 16 0
+T -> 0 16 1
+T -> 0 16 W
+T -> 0 16 X
+T -> 0 16 Y
+U -> 0 16 E
+V -> Q
+V -> R
+V -> S
+V -> T
+W -> 1 Z 1
+X -> 1 AA 1
+Y -> 0 Z 0
+Y -> 0 Z 1
+Y -> 1 Z 0
+Y -> 1 Z 1
+Z -> AA
+Z -> 22
+AA -> 18
+AA -> 19
+AA -> 20
+AA -> 21
+AB -> 23 AC 7
+AC -> 26 0
+AC -> 26 0 AC
+AD -> 24 AE 7
+AE -> 25 AF
+AE -> 25 AF AE
+AF -> I
+AF -> 41
+AG -> AH
+AG -> AH 28 AL
+AH -> 27 8 AI 9 AL
+AI -> 0 AJ 0
+AI -> 0 AJ 1
+AJ -> 33
+AJ -> 34
+AJ -> 35
+AJ -> 36
+AJ -> 17
+AJ -> 37
+AK -> 30 8 AI 9 10 AL 11
+AK -> 29 8 V 7 AI 7 V 9 10 AL 11
+AL -> AM
+AL -> AL AM
+AM -> E 7
+AM -> V 7
+AM -> AB
+AM -> AD
+AM -> AG
+AM -> AK
+AM -> AO
+AN -> 31 0
+AN -> 31 1
+AO -> AN 7
+A -> 2 3 4 5 6 7 B
+B -> D
+B -> D B
+C -> J K
+D -> C 10 AL 11
+E -> F
+F -> 0 8 G 9
+G -> H
+G -> EPSILON
+H -> I
+H -> I 12 H
+I -> 0
+I -> 1
+J -> O
+J -> 42
+K -> 0 8 L 9
+L -> M
+L -> EPSILON
+M -> N
+M -> N 12 M
+N -> O 0
+O -> 13
+O -> 14
+O -> 15
+P -> 15 8 O 1 9
+Q -> 13 U
+Q -> 13 0 16 1
+Q -> 13 0 16 0
+Q -> 13 0 16 W
+Q -> 13 0 16 Y
+R -> 14 U
+R -> 14 0 16 1
+R -> 14 0 16 0
+R -> 14 0 16 X
+R -> 14 0 16 Y
+S -> 15 U
+S -> 15 0 16 P
+S -> 0 16 P
+T -> U
+T -> 0 16 0
+T -> 0 16 1
+T -> 0 16 W
+T -> 0 16 X
+T -> 0 16 Y
+U -> 0 16 E
+V -> Q
+V -> R
+V -> S
+V -> T
+W -> 1 Z 1
+X -> 1 AA 1
+Y -> 0 Z 0
+Y -> 0 Z 1
+Y -> 1 Z 0
+Y -> 1 Z 1
+Z -> AA
+Z -> 22
+AA -> 18
+AA -> 19
+AA -> 20
+AA -> 21
+AB -> 23 AC 7
+AC -> 26 0
+AC -> 26 0 AC
+AD -> 24 AE 7
+AE -> 25 AF
+AE -> 25 AF AE
+AF -> I
+AF -> 41
+AG -> AH
+AG -> AH 28 AL
+AH -> 27 8 AI 9 AL
+AI -> 0 AJ 0
+AI -> 0 AJ 1
+AJ -> 33
+AJ -> 34
+AJ -> 35
+AJ -> 36
+AJ -> 17
+AJ -> 37
+AK -> 30 8 AI 9 10 AL 11
+AK -> 29 8 V 7 AI 7 V 9 10 AL 11
+AL -> AM
+AL -> AL AM
+AM -> E 7
+AM -> V 7
+AM -> AB
+AM -> AD
+AM -> AG
+AM -> AK
+AM -> AO
+AN -> 31 0
+AN -> 31 1
+AO -> AN 7
+A -> 2 3 4 5 6 7 B
+B -> D
+B -> D B
+C -> J K
+D -> C 10 AL 11
+E -> F
+F -> 0 8 G 9
+G -> H
+G -> EPSILON
+H -> I
+H -> I 12 H
+I -> 0
+I -> 1
+J -> O
+J -> 42
+K -> 0 8 L 9
+L -> M
+L -> EPSILON
+M -> N
+M -> N 12 M
+N -> O 0
+O -> 13
+O -> 14
+O -> 15
+P -> 15 8 O 1 9
+Q -> 13 U
+Q -> 13 0 16 1
+Q -> 13 0 16 0
+Q -> 13 0 16 W
+Q -> 13 0 16 Y
+R -> 14 U
+R -> 14 0 16 1
+R -> 14 0 16 0
+R -> 14 0 16 X
+R -> 14 0 16 Y
+S -> 15 U
+S -> 15 0 16 P
+S -> 0 16 P
+T -> U
+T -> 0 16 0
+T -> 0 16 1
+T -> 0 16 W
+T -> 0 16 X
+T -> 0 16 Y
+U -> 0 16 E
+V -> Q
+V -> R
+V -> S
+V -> T
+W -> 1 Z 1
+X -> 1 AA 1
+Y -> 0 Z 0
+Y -> 0 Z 1
+Y -> 1 Z 0
+Y -> 1 Z 1
+Z -> AA
+Z -> 22
+AA -> 18
+AA -> 19
+AA -> 20
+AA -> 21
+AB -> 23 AC 7
+AC -> 26 0
+AC -> 26 0 AC
+AD -> 24 AE 7
+AE -> 25 AF
+AE -> 25 AF AE
+AF -> I
+AF -> 41
+AG -> AH
+AG -> AH 28 AL
+AH -> 27 8 AI 9 AL
+AI -> 0 AJ 0
+AI -> 0 AJ 1
+AJ -> 33
+AJ -> 34
+AJ -> 35
+AJ -> 36
+AJ -> 17
+AJ -> 37
+AK -> 30 8 AI 9 10 AL 11
+AK -> 29 8 V 7 AI 7 V 9 10 AL 11
+AL -> AM
+AL -> AL AM
+AM -> E 7
+AM -> V 7
+AM -> AB
+AM -> AD
+AM -> AG
+AM -> AK
+AM -> AO
+AN -> 31 0
+AN -> 31 1
+AO -> AN 7
+A -> 2 3 4 5 6 7 B
+B -> D
+B -> D B
+C -> J K
+D -> C 10 AL 11
+E -> F
+F -> 0 8 G 9
+G -> H
+G -> EPSILON
+H -> I
+H -> I 12 H
+I -> 0
+I -> 1
+J -> O
+J -> 42
+K -> 0 8 L 9
+L -> M
+L -> EPSILON
+M -> N
+M -> N 12 M
+N -> O 0
+O -> 13
+O -> 14
+O -> 15
+P -> 15 8 O 1 9
+Q -> 13 U
+Q -> 13 0 16 1
+Q -> 13 0 16 0
+Q -> 13 0 16 W
+Q -> 13 0 16 Y
+R -> 14 U
+R -> 14 0 16 1
+R -> 14 0 16 0
+R -> 14 0 16 X
+R -> 14 0 16 Y
+S -> 15 U
+S -> 15 0 16 P
+S -> 0 16 P
+T -> U
+T -> 0 16 0
+T -> 0 16 1
+T -> 0 16 W
+T -> 0 16 X
+T -> 0 16 Y
+U -> 0 16 E
+V -> Q
+V -> R
+V -> S
+V -> T
+W -> 1 Z 1
+X -> 1 AA 1
+Y -> 0 Z 0
+Y -> 0 Z 1
+Y -> 1 Z 0
+Y -> 1 Z 1
+Z -> AA
+Z -> 22
+AA -> 18
+AA -> 19
+AA -> 20
+AA -> 21
+AB -> 23 AC 7
+AC -> 26 0
+AC -> 26 0 AC
+AD -> 24 AE 7
+AE -> 25 AF
+AE -> 25 AF AE
+AF -> I
+AF -> 41
+AG -> AH
+AG -> AH 28 AL
+AH -> 27 8 AI 9 AL
+AI -> 0 AJ 0
+AI -> 0 AJ 1
+AJ -> 33
+AJ -> 34
+AJ -> 35
+AJ -> 36
+AJ -> 17
+AJ -> 37
+AK -> 30 8 AI 9 10 AL 11
+AK -> 29 8 V 7 AI 7 V 9 10 AL 11
+AL -> AM
+AL -> AL AM
+AM -> E 7
+AM -> V 7
+AM -> AB
+AM -> AD
+AM -> AG
+AM -> AK
+AM -> AO
+AN -> 31 0
+AN -> 31 1
+AO -> AN 7
+A -> 2 3 4 5 6 7 B
+B -> D
+B -> D B
+C -> J K
+D -> C 10 AL 11
+E -> F
+F -> 0 8 G 9
+G -> H
+G -> EPSILON
+H -> I
+H -> I 12 H
+I -> 0
+I -> 1
+J -> O
+J -> 42
+K -> 0 8 L 9
+L -> M
+L -> EPSILON
+M -> N
+M -> N 12 M
+N -> O 0
+O -> 13
+O -> 14
+O -> 15
+P -> 15 8 O 1 9
+Q -> 13 U
+Q -> 13 0 16 1
+Q -> 13 0 16 0
+Q -> 13 0 16 W
+Q -> 13 0 16 Y
+R -> 14 U
+R -> 14 0 16 1
+R -> 14 0 16 0
+R -> 14 0 16 X
+R -> 14 0 16 Y
+S -> 15 U
+S -> 15 0 16 P
+S -> 0 16 P
+T -> U
+T -> 0 16 0
+T -> 0 16 1
+T -> 0 16 W
+T -> 0 16 X
+T -> 0 16 Y
+U -> 0 16 E
+V -> Q
+V -> R
+V -> S
+V -> T
+W -> 1 Z 1
+X -> 1 AA 1
+Y -> 0 Z 0
+Y -> 0 Z 1
+Y -> 1 Z 0
+Y -> 1 Z 1
+Z -> AA
+Z -> 22
+AA -> 18
+AA -> 19
+AA -> 20
+AA -> 21
+AB -> 23 AC 7
+AC -> 26 0
+AC -> 26 0 AC
+AD -> 24 AE 7
+AE -> 25 AF
+AE -> 25 AF AE
+AF -> I
+AF -> 41
+AG -> AH
+AG -> AH 28 AL
+AH -> 27 8 AI 9 AL
+AI -> 0 AJ 0
+AI -> 0 AJ 1
+AJ -> 33
+AJ -> 34
+AJ -> 35
+AJ -> 36
+AJ -> 17
+AJ -> 37
+AK -> 30 8 AI 9 10 AL 11
+AK -> 29 8 V 7 AI 7 V 9 10 AL 11
+AL -> AM
+AL -> AL AM
+AM -> E 7
+AM -> V 7
+AM -> AB
+AM -> AD
+AM -> AG
+AM -> AK
+AM -> AO
+AN -> 31 0
+AN -> 31 1
+AO -> AN 7

@@ -41,6 +41,14 @@ public class LR1AutomatonBuilder {
                         if (closure.add(newItem)) {
                             changed = true;
                         }
+
+                        // If the production leads to epsilon, add a new item with the dot at the beginning and the appropriate lookaheads
+                        if (rule.getRightHandSide().size() == 1 && rule.getRightHandSide().get(0).equals(Symbol.EPSILON)) {
+                            LR1Item epsilonItem = new LR1Item(rule, 0, item.getLookaheads());
+                            if (closure.add(epsilonItem)) {
+                                changed = true;
+                            }
+                        }
                     }
                 }
             }
