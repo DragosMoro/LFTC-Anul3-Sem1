@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Grammar {
-    private List<ProductionRule> productionRules;
+    private final List<ProductionRule> productionRules;
 
     public Grammar(List<ProductionRule> productionRules) {
         this.productionRules = productionRules;
